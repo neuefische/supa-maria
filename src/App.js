@@ -7,13 +7,16 @@ import Button from "./components/Button";
 
 function App() {
   return (
-    <main>
+    <>
       <Header className="header"></Header>
-      <Player className="playerOne"></Player>
-      <Player className="playerTwo"></Player>
-      <Characters className="characters"></Characters>
-      <Button className="button-save"></Button>
-    </main>
+      <main>
+        <h2>Choose your princesses</h2>
+        <Player className="playerOne">Player 1</Player>
+        <Player className="playerTwo">Player 2</Player>
+        <Characters className="characters"></Characters>
+        <Button className="button-save"></Button>
+      </main>
+    </>
   );
 }
 

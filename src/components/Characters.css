@@ -1,0 +1,15 @@
+.charactersWrapper {
+  background-color: #ffc4eb;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  min-width: 600px;
+  min-height: 600px;
+}
+
+.characters {
+  border-radius: 10px;
+  margin: 10px;
+  min-width: 600px;
+  min-height: 600px;
+}

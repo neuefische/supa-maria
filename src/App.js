@@ -10,7 +10,7 @@ function App() {
     <>
       <Header />
       <main>
-        <h2>Choose your princesses</h2>
+        <h2 className="headline">Choose your princesses</h2>
         <section className="players">
           <Player className="playerOne">Player 1</Player>
           <Player className="playerTwo">Player 2</Player>

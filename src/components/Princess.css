@@ -1,0 +1,16 @@
+.princess {
+  flex-basis: calc(100% / 4 - 4px);
+  background-color: rgb(255, 255, 255, 0.7);
+  margin: 2px;
+}
+
+.princess:hover {
+  outline: solid 4px #ffd800;
+}
+
+.princess-active {
+  background-color: #591f6e;
+  opacity: 0.32;
+  flex-basis: calc(100% / 4 - 4px);
+  margin: 2px;
+}

@@ -1,8 +1,8 @@
 import React from "react";
-import "./princess.css";
+import "./Princess.css";
 
 function Princess(props) {
-  return <Princess className="princess" {...props} />;
+  return <div className="princess" {...props} />;
 }
 
 export default Princess;

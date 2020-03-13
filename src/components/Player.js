@@ -2,11 +2,7 @@ import React from "react";
 import "./Player.css";
 
 function Player(props) {
-  return (
-    <div className="players">
-      <player className="player" {...props} />
-    </div>
-  );
+  return <div className="player" {...props} />;
 }
 
 export default Player;

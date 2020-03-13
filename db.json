@@ -1,0 +1,84 @@
+{
+  "characters": [
+    {
+      "name": "Princess Bubblegum",
+      "id": "01",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Lumpy Space Princess",
+      "id": "02",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Wild Berry Princess",
+      "id": "03",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Hot Dog Princess",
+      "id": "04",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Flame Princess",
+      "id": "05",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Bee Princess",
+      "id": "06",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Cotton Candy Princess",
+      "id": "07",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Cookie Princess",
+      "id": "08",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Desert Princess",
+      "id": "09",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Breakfast Princess",
+      "id": "10",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Jungle Princess",
+      "id": "11",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Toast Princess",
+      "id": "12",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Muscle Princess",
+      "id": "13",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Frozen Yoghurt Princess",
+      "id": "14",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Slime Princess",
+      "id": "15",
+      "img": "./src/img/"
+    },
+    {
+      "name": "Peanut Butter Princess",
+      "id": "16",
+      "img": "./src/img/"
+    }
+  ]
+}

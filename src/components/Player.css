@@ -2,9 +2,9 @@
   background: rgb(234, 234, 234);
   background: radial-gradient(circle, #b13edb 0%, #591f6e 100%);
   margin: 10px;
-  padding: 6px 10px;
-  width: 100%;
-  max-width: 250px;
+  padding: 10px 10px;
+  /* width: 100%; */
+  max-width: 350px;
   height: 60px;
   border-radius: 25px;
   font-family: "Sweet Cake", serif;
@@ -15,9 +15,9 @@
   background: rgb(234, 234, 234);
   background: radial-gradient(circle, #ff7eeb 0%, #d10171 100%);
   margin: 10px;
-  padding: 6px 10px;
-  width: 100%;
-  max-width: 250px;
+  padding: 10px 10px;
+  /* width: 100%; */
+  max-width: 350px;
   height: 60px;
   border-radius: 25px;
   font-family: "Sweet Cake", serif;
@@ -29,9 +29,9 @@
   background: rgb(234, 234, 234);
   background: red;
   margin: 10px;
-  padding: 6px 10px;
-  width: 100%;
-  max-width: 250px;
+  padding: 10px 10px;
+  /* width: 100%; */
+  max-width: 350px;
   height: 60px;
   border-radius: 25px;
   font-family: "Sweet Cake", serif;

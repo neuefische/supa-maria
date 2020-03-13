@@ -13,22 +13,22 @@ getCharacter();
 
 function Characters(props) {
   const princessData = [
-    "./assets/Princess_Bubblegum.png",
-    "./assets/Lumpy_Space.png",
-    "./assets/Wildberry.png",
-    "./assets/Hot_Dog_Princess.png",
-    "./assets/Flame_Queen.png",
-    "./assets/Bee_Princess.png",
-    "./assets/Cotton_Candy_Princess.png",
-    "./assets/Princess_Cookie.png",
-    "./assets/Desert_Princess.png",
-    "./assets/BEPRINCEES.png",
-    "./assets/Jungle_Princess.png",
-    "./assets/Taoprriecess.png",
-    "./assets/Muscle_Princess_Revised.png",
-    "./assets/FrozenYogurtPrincess.png",
+    "./assets/bubblegum.png",
+    "./assets/lumpyspace.png",
+    "./assets/wildberry.png",
+    "./assets/hotdog.png",
+    "./assets/flame.png",
+    "./assets/bee.png",
+    "./assets/cottoncandy.png",
+    "./assets/cookie.png",
+    "./assets/desert.png",
+    "./assets/breakfast.png",
+    "./assets/jungle.png",
+    "./assets/toast.png",
+    "./assets/muscle.png",
+    "./assets/Frozenyogurt.png",
     "./assets/slime.png",
-    "./assets/Peanut_princess.png"
+    "./assets/peanut.png"
   ];
   return (
     <section className="characters" {...props}>

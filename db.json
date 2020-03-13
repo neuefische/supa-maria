@@ -3,72 +3,72 @@
     {
       "name": "Princess Bubblegum",
       "id": "01",
-      "img": "./assets/img/Princess_Bubblegum.png"
+      "img": "./assets/img/bubblegum.png"
     },
     {
       "name": "Lumpy Space Princess",
       "id": "02",
-      "img": "./assets/img/Lumpy_Space.png"
+      "img": "./assets/img/lumpyspace.png"
     },
     {
       "name": "Wild Berry Princess",
       "id": "03",
-      "img": "./assets/img/Wildberry.png"
+      "img": "./assets/img/wildberry.png"
     },
     {
       "name": "Hot Dog Princess",
       "id": "04",
-      "img": "./assets/img/Hot_Dog_Princess.png"
+      "img": "./assets/img/hotdog.png"
     },
     {
       "name": "Flame Princess",
       "id": "05",
-      "img": "./assets/img/Flame_Queen.png"
+      "img": "./assets/img/flame.png"
     },
     {
       "name": "Bee Princess",
       "id": "06",
-      "img": "./assets/img/Bee_Princess.png"
+      "img": "./assets/img/bee.png"
     },
     {
       "name": "Cotton Candy Princess",
       "id": "07",
-      "img": "./assets/img/Cotton_Candy_Princess.png"
+      "img": "./assets/img/cottoncandy.png"
     },
     {
       "name": "Cookie Princess",
       "id": "08",
-      "img": "./assets/img/Princess_Cookie"
+      "img": "./assets/img/cookie"
     },
     {
       "name": "Desert Princess",
       "id": "09",
-      "img": "./assets/img/Desert_Princess"
+      "img": "./assets/img/desert"
     },
     {
       "name": "Breakfast Princess",
       "id": "10",
-      "img": "./assets/img/BEPRINCEES.png"
+      "img": "./assets/img/breakfast.png"
     },
     {
       "name": "Jungle Princess",
       "id": "11",
-      "img": "./assets/img/Jungle_Princess.png"
+      "img": "./assets/img/jungle.png"
     },
     {
       "name": "Toast Princess",
       "id": "12",
-      "img": "./assets/img/Taoprriecess.png"
+      "img": "./assets/img/toast.png"
     },
     {
       "name": "Muscle Princess",
       "id": "13",
-      "img": "./assets/img/Muscle_Princess_Revised.png"
+      "img": "./assets/img/muscle.png"
     },
     {
       "name": "Frozen Yoghurt Princess",
       "id": "14",
-      "img": "./assets/img/FrozenYogurtPrincess.png"
+      "img": "./assets/img/frozenyogurt.png"
     },
     {
       "name": "Slime Princess",
@@ -78,7 +78,7 @@
     {
       "name": "Peanut Butter Princess",
       "id": "16",
-      "img": "./assets/img/Peanut_princess.png"
+      "img": "./assets/img/peanut.png"
     }
   ]
 }

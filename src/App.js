@@ -16,7 +16,7 @@ function App() {
           <Player className="playerTwo">Player 2</Player>
         </section>
         <Characters className="characters"></Characters>
-        <Button className="button-save">confirm</Button>
+        <Button className="button-disabled">confirm</Button>
       </main>
     </>
   );

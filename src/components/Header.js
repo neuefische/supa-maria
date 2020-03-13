@@ -1,15 +1,14 @@
 import React from "react";
-import { crown } from "../assets/crown.png";
+import Crown from "../assets/crown.png";
 import "./Header.css";
 
 function Header(props) {
   return (
-    <>
-      <header className="header" {...props} />
+    <header className="header" {...props}>
       <h1 className="title">Supa</h1>
-      <img className="logo" src={crown} alt="Crown"></img>
+      <img className="logo" src={Crown} alt="Crown"></img>
       <h1 className="title">Maria</h1>
-    </>
+    </header>
   );
 }
 

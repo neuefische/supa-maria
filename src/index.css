@@ -6,12 +6,17 @@
 
 body {
   margin: 0;
-  height: 100vh;
   background: linear-gradient(
     0deg,
     rgba(255, 192, 226, 1) 0%,
     rgba(255, 56, 163, 1) 100%
   );
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 @font-face {

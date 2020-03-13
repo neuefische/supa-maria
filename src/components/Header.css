@@ -3,8 +3,8 @@
   height: 128px;
   background-color: #953f70;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
 }
 .title {
   font-family: "Adventure Time Logo", serif;
@@ -14,6 +14,5 @@
 
 .logo {
   height: 80px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin: 30px;
 }

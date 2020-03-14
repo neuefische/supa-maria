@@ -2,16 +2,23 @@ import React from "react";
 import Princess from "./Princess";
 import "./Characters.css";
 
-async function getCharacter() {
-  // Get Characters
-  const response = await fetch("http://localhost:4000/characters");
-  const results = await response.json();
-  console.log(results);
-}
+// async function getCharacter() {
+//   // Get Characters
+//   const response = await fetch("http://localhost:4000/characters");
+//   const results = await response.json();
+//   console.log(results);
+// }
 
-getCharacter();
+// getCharacter();
 
 function Characters(props) {
+  const [currentPlayer, setCurrentPlayer] = React.useState(1);
+  function handleClick() {
+    const nextPlayer = currentPlayer === 1 ? 2 : 1;
+    setCurrentPlayer(nextPlayer);
+    console.log(nextPlayer);
+  }
+
   const princessData = [
     "./assets/bubblegum.png",
     "./assets/lumpyspace.png",
@@ -34,7 +41,13 @@ function Characters(props) {
     <section className="characters" {...props}>
       <div className="charactersWrapper">
         {princessData.map(function(princess, index) {
-          return <Princess className="princess" imgsource={princess} />;
+          return (
+            <Princess
+              className="princess"
+              imgsource={princess}
+              onClick={() => handleClick()}
+            />
+          );
         })}
       </div>
     </section>

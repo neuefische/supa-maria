@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Player from "./components/Player";
 import Characters from "./components/Characters";
 import Button from "./components/Button";
 
@@ -11,10 +10,6 @@ function App() {
       <Header />
       <main>
         <h2 className="headline">Choose your princesses</h2>
-        <section className="players">
-          <Player className="playerOne">Player 1</Player>
-          <Player className="playerTwo">Player 2</Player>
-        </section>
         <Characters className="characters"></Characters>
         <Button className="button-disabled">confirm</Button>
       </main>

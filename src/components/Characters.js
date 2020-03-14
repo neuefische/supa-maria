@@ -14,8 +14,20 @@ import "./Characters.css";
 
 function Characters(props) {
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
+  const [playerClass, switchPlayerClasses] = React.useState([
+    "playerOne active",
+    "playerTwo"
+  ]);
   function handleClick() {
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
+    if (currentPlayer === 1) {
+      playerClass[0] = playerClass[0].replace(" active", "");
+      playerClass[1] = playerClass[1].concat(" active");
+    } else {
+      playerClass[0] = playerClass[0].concat(" active");
+      playerClass[1] = playerClass[1].replace(" active", "");
+    }
+    switchPlayerClasses([playerClass[0], playerClass[1]]);
     setCurrentPlayer(nextPlayer);
     console.log(nextPlayer);
   }
@@ -41,8 +53,8 @@ function Characters(props) {
   return (
     <>
       <section className="players">
-        <Player className="playerOne">Player 1</Player>
-        <Player className="playerTwo">Player 2</Player>
+        <Player className={playerClass[0]}>Player 1</Player>
+        <Player className={playerClass[1]}>Player 2</Player>
       </section>
       <section className="characters" {...props}>
         <div className="charactersWrapper">

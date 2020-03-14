@@ -14,47 +14,49 @@ import "./Characters.css";
 
 function Characters(props) {
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
-  const [playerClass, switchPlayerClasses] = React.useState([
+  const [playerClasses, setPlayerClasses] = React.useState([
     "playerOne active",
     "playerTwo"
   ]);
+  const [princessSelected, setPrincessSelected] = React.useState(
+    Array(16).fill(null)
+  );
   function handleClick() {
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
     if (currentPlayer === 1) {
-      playerClass[0] = playerClass[0].replace(" active", "");
-      playerClass[1] = playerClass[1].concat(" active");
+      playerClasses[0] = playerClasses[0].replace(" active", "");
+      playerClasses[1] = playerClasses[1].concat(" active");
     } else {
-      playerClass[0] = playerClass[0].concat(" active");
-      playerClass[1] = playerClass[1].replace(" active", "");
+      playerClasses[0] = playerClasses[0].concat(" active");
+      playerClasses[1] = playerClasses[1].replace(" active", "");
     }
-    switchPlayerClasses([playerClass[0], playerClass[1]]);
+    setPlayerClasses([playerClasses[0], playerClasses[1]]);
     setCurrentPlayer(nextPlayer);
-    console.log(nextPlayer);
   }
 
   const princessData = [
-    "./assets/bubblegum.png",
-    "./assets/lumpyspace.png",
-    "./assets/wildberry.png",
-    "./assets/hotdog.png",
-    "./assets/flame.png",
-    "./assets/bee.png",
-    "./assets/cottoncandy.png",
-    "./assets/cookie.png",
-    "./assets/desert.png",
-    "./assets/breakfast.png",
-    "./assets/jungle.png",
-    "./assets/toast.png",
-    "./assets/muscle.png",
-    "./assets/Frozenyogurt.png",
-    "./assets/slime.png",
-    "./assets/peanut.png"
+    ["Princess Bubblegum", "./assets/bubblegum.png"],
+    ["Lumpy Space Princess", "./assets/lumpyspace.png"],
+    ["Wild Berry Princess", "./assets/wildberry.png"],
+    ["Hot Dog Princess", "./assets/hotdog.png"],
+    ["Flame Princess", "./assets/flame.png"],
+    ["Bee Princess", "./assets/bee.png"],
+    ["Cotton Candy Princess", "./assets/cottoncandy.png"],
+    ["Cookie Princess", "./assets/cookie.png"],
+    ["Desert Princess", "./assets/desert.png"],
+    ["Breakfast Princess", "./assets/breakfast.png"],
+    ["Jungle Princess", "./assets/jungle.png"],
+    ["Toast Princess", "./assets/toast.png"],
+    ["Muscle Princess", "./assets/muscle.png"],
+    ["Frozen Yogurt Princess", "./assets/Frozenyogurt.png"],
+    ["Slime Princess", "./assets/slime.png"],
+    ["Peanut Princess", "./assets/peanut.png"]
   ];
   return (
     <>
       <section className="players">
-        <Player className={playerClass[0]}>Player 1</Player>
-        <Player className={playerClass[1]}>Player 2</Player>
+        <Player className={playerClasses[0]}>Player 1</Player>
+        <Player className={playerClasses[1]}>Player 2</Player>
       </section>
       <section className="characters" {...props}>
         <div className="charactersWrapper">
@@ -62,7 +64,7 @@ function Characters(props) {
             return (
               <Princess
                 className="princess"
-                imgsource={princess}
+                imgsource={princess[1]}
                 onClick={() => handleClick()}
               />
             );

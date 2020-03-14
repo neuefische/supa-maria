@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Result() {
   return (
     <div>
-      Result <Link to="/">SelectPage</Link>{" "}
+      Result <Link to="/select">SelectPage</Link>{" "}
     </div>
   );
 }

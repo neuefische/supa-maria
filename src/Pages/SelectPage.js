@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./SelectPage.css";
 import Header from "../components/Header";
 import Characters from "../components/Characters";
 import Button from "../components/Button";

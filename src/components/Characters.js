@@ -1,5 +1,6 @@
 import React from "react";
 import Princess from "./Princess";
+import Player from "./Player";
 import "./Characters.css";
 
 // async function getCharacter() {
@@ -38,19 +39,25 @@ function Characters(props) {
     "./assets/peanut.png"
   ];
   return (
-    <section className="characters" {...props}>
-      <div className="charactersWrapper">
-        {princessData.map(function(princess, index) {
-          return (
-            <Princess
-              className="princess"
-              imgsource={princess}
-              onClick={() => handleClick()}
-            />
-          );
-        })}
-      </div>
-    </section>
+    <>
+      <section className="players">
+        <Player className="playerOne">Player 1</Player>
+        <Player className="playerTwo">Player 2</Player>
+      </section>
+      <section className="characters" {...props}>
+        <div className="charactersWrapper">
+          {princessData.map(function(princess, index) {
+            return (
+              <Princess
+                className="princess"
+                imgsource={princess}
+                onClick={() => handleClick()}
+              />
+            );
+          })}
+        </div>
+      </section>
+    </>
   );
 }
 

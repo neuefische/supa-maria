@@ -1,20 +1,25 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Characters from "./components/Characters";
-import Button from "./components/Button";
+import Select from "./pages/SelectPage";
+import Result from "./pages/TeamPage";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <main>
-        <h2 className="headline">Choose your princesses</h2>
-        <Characters className="characters"></Characters>
-        <Button className="button-disabled">confirm</Button>
+      <main className="main">
+        <Switch>
+          <Route path="/result">
+            <Result />
+          </Route>
+          <Route path="/">
+            <Select />
+          </Route>
+        </Switch>
       </main>
-    </>
+    </Router>
   );
 }
-
 export default App;

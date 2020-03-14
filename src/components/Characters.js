@@ -3,45 +3,31 @@ import Princess from "./Princess";
 import Player from "./Player";
 import "./Characters.css";
 
-// async function getCharacter() {
-//   // Get Characters
-//   const response = await fetch("http://localhost:4000/characters");
-//   const results = await response.json();
-//   console.log(results);
-// }
-
-// getCharacter();
-
 function Characters(props) {
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
   const [playerClasses, setPlayerClasses] = React.useState([
     "playerOne active",
     "playerTwo"
   ]);
-  const [princessClasses, setPrincessClasses] = React.useState(
-    Array(16).fill("princess")
-  );
-  const [princessesPlayerOne, setPrincessesPlayerOne] = React.useState(
-    Array(4).fill(null)
-  );
-  const [princessesPlayerTwo, setPrincessesPlayerTwo] = React.useState(
-    Array(4).fill(null)
-  );
+  const [princessesPlayerOne, setPrincessesPlayerOne] = React.useState(Array());
+  const [princessesPlayerTwo, setPrincessesPlayerTwo] = React.useState(Array());
   function handleClick(event, princess, princessImage) {
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
     if (currentPlayer === 1) {
       playerClasses[0] = playerClasses[0].replace(" active", "");
       playerClasses[1] = playerClasses[1].concat(" active");
       event.currentTarget.className = "princess-playerOne";
+      princessesPlayerOne.push([princess, princessImage]);
+      console.log(princessesPlayerOne);
     } else {
       playerClasses[0] = playerClasses[0].concat(" active");
       playerClasses[1] = playerClasses[1].replace(" active", "");
       event.currentTarget.className = "princess-playerTwo";
+      princessesPlayerTwo.push([princess, princessImage]);
+      console.log(princessesPlayerTwo);
     }
     setPlayerClasses([playerClasses[0], playerClasses[1]]);
     setCurrentPlayer(nextPlayer);
-    console.log(princess);
-    console.log(princessImage);
   }
 
   const princessData = [

@@ -2,6 +2,7 @@
   flex-basis: calc(100% / 4 - 4px);
   background-color: rgb(255, 255, 255, 0.7);
   margin: 2px;
+  cursor: pointer;
 }
 
 .princess:hover {

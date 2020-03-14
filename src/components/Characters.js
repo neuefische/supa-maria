@@ -9,22 +9,49 @@ function Characters(props) {
     "playerOne active",
     "playerTwo"
   ]);
-  const [princessesPlayerOne, setPrincessesPlayerOne] = React.useState(Array());
-  const [princessesPlayerTwo, setPrincessesPlayerTwo] = React.useState(Array());
+  const [teamOne, setTeamOne] = React.useState(Array());
+  const [teamTwo, setTeamTwo] = React.useState(Array());
   function handleClick(event, princess, princessImage) {
+    // Stop functionality if already 8 princesses are selected
+    if (teamOne.length === 4 && teamTwo.length === 4) {
+      return;
+    }
+
+    // Stop if princess is already in a team
+    const allTeams = teamOne.concat(teamTwo);
+    const alreadySelected = allTeams.find(
+      selectedPrincess => selectedPrincess[0] === princess
+    )
+      ? true
+      : false;
+
+    if (alreadySelected) {
+      return;
+    }
+
+    // Set next player
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
+
     if (currentPlayer === 1) {
+      // Toggle active player class
       playerClasses[0] = playerClasses[0].replace(" active", "");
       playerClasses[1] = playerClasses[1].concat(" active");
+
+      // Save selected princess in array
       event.currentTarget.className = "princess-playerOne";
-      princessesPlayerOne.push([princess, princessImage]);
-      console.log(princessesPlayerOne);
+      teamOne.push([princess, princessImage]);
+      setTeamOne(teamOne);
+      console.log(teamOne);
     } else {
+      // Toggle active player class
       playerClasses[0] = playerClasses[0].concat(" active");
       playerClasses[1] = playerClasses[1].replace(" active", "");
+
+      // Save selected princess in array
       event.currentTarget.className = "princess-playerTwo";
-      princessesPlayerTwo.push([princess, princessImage]);
-      console.log(princessesPlayerTwo);
+      teamTwo.push([princess, princessImage]);
+      setTeamTwo(teamTwo);
+      console.log(teamTwo);
     }
     setPlayerClasses([playerClasses[0], playerClasses[1]]);
     setCurrentPlayer(nextPlayer);

@@ -8,9 +8,14 @@
   outline: solid 4px #ffd800;
 }
 
-.princess-active {
+.princess-playerOne {
   background-color: #591f6e;
-  opacity: 0.32;
+  flex-basis: calc(100% / 4 - 4px);
+  margin: 2px;
+}
+
+.princess-playerTwo {
+  background-color: #d10171;
   flex-basis: calc(100% / 4 - 4px);
   margin: 2px;
 }

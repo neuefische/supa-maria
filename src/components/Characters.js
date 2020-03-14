@@ -18,20 +18,30 @@ function Characters(props) {
     "playerOne active",
     "playerTwo"
   ]);
-  const [princessSelected, setPrincessSelected] = React.useState(
-    Array(16).fill(null)
+  const [princessClasses, setPrincessClasses] = React.useState(
+    Array(16).fill("princess")
   );
-  function handleClick() {
+  const [princessesPlayerOne, setPrincessesPlayerOne] = React.useState(
+    Array(4).fill(null)
+  );
+  const [princessesPlayerTwo, setPrincessesPlayerTwo] = React.useState(
+    Array(4).fill(null)
+  );
+  function handleClick(event, princess, princessImage) {
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
     if (currentPlayer === 1) {
       playerClasses[0] = playerClasses[0].replace(" active", "");
       playerClasses[1] = playerClasses[1].concat(" active");
+      event.currentTarget.className = "princess-playerOne";
     } else {
       playerClasses[0] = playerClasses[0].concat(" active");
       playerClasses[1] = playerClasses[1].replace(" active", "");
+      event.currentTarget.className = "princess-playerTwo";
     }
     setPlayerClasses([playerClasses[0], playerClasses[1]]);
     setCurrentPlayer(nextPlayer);
+    console.log(princess);
+    console.log(princessImage);
   }
 
   const princessData = [
@@ -65,7 +75,7 @@ function Characters(props) {
               <Princess
                 className="princess"
                 imgsource={princess[1]}
-                onClick={() => handleClick()}
+                onClick={event => handleClick(event, ...princess)}
               />
             );
           })}

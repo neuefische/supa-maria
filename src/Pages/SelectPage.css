@@ -1,0 +1,9 @@
+.players {
+  display: flex;
+  flex-direction: row;
+}
+.headline {
+  font-family: "Sweet Cake", serif;
+  color: white;
+  font-size: 3.7rem;
+}

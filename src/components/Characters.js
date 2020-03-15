@@ -19,8 +19,9 @@ function Characters(props) {
 
     // Stop if princess is already in a team
     const allTeams = teamOne.concat(teamTwo);
+
     const alreadySelected = allTeams.find(
-      selectedPrincess => selectedPrincess[0] === princessName
+      selectedPrincess => selectedPrincess[1] === princessName
     )
       ? true
       : false;

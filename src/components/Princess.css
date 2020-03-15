@@ -25,3 +25,9 @@
   width: 141px;
   height: 141px;
 }
+
+.princess-results {
+  border: 10px solid #ff20ac;
+  border-radius: 10px;
+  margin: 4px;
+}

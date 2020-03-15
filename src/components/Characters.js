@@ -75,14 +75,18 @@ function Characters(props) {
 
     console.log(teams);
 
-    // Save / update teams in db
-    // await fetch("http://localhost:4000/teams", {
-    //   method: "PUT",
-    //   headers: {
-    //     "Content-Type": "application/json;charset=utf-8"
-    //   },
-    //   body: JSON.stringify(princess)
-    // });
+    //Save / update teams in db
+    await fetch("http://localhost:4000/teams/1", {
+      method: "DELETE"
+    });
+    await fetch("http://localhost:4000/teams", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      body: JSON.stringify(teams)
+    });
+
     setPlayerClasses([playerClasses[0], playerClasses[1]]);
     setCurrentPlayer(nextPlayer);
   }

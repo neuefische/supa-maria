@@ -11,7 +11,7 @@ function Characters(props) {
   ]);
   const [teamOne, setTeamOne] = React.useState(Array());
   const [teamTwo, setTeamTwo] = React.useState(Array());
-  function handleClick(event, princess, princessImage) {
+  async function handleClick(event, princessID, princessName, princessImage) {
     // Stop functionality if already 8 princesses are selected
     if (teamOne.length === 4 && teamTwo.length === 4) {
       return;
@@ -20,7 +20,7 @@ function Characters(props) {
     // Stop if princess is already in a team
     const allTeams = teamOne.concat(teamTwo);
     const alreadySelected = allTeams.find(
-      selectedPrincess => selectedPrincess[0] === princess
+      selectedPrincess => selectedPrincess[0] === princessName
     )
       ? true
       : false;
@@ -39,9 +39,8 @@ function Characters(props) {
 
       // Save selected princess in array
       event.currentTarget.className = "princess-playerOne";
-      teamOne.push([princess, princessImage]);
+      teamOne.push([princessID, princessName, princessImage]);
       setTeamOne(teamOne);
-      console.log(teamOne);
     } else {
       // Toggle active player class
       playerClasses[0] = playerClasses[0].concat(" active");
@@ -49,31 +48,66 @@ function Characters(props) {
 
       // Save selected princess in array
       event.currentTarget.className = "princess-playerTwo";
-      teamTwo.push([princess, princessImage]);
+      teamTwo.push([princessID, princessName, princessImage]);
       setTeamTwo(teamTwo);
-      console.log(teamTwo);
     }
+
+    // Create teams object to save it in db
+    const teams = {};
+    teams.teamone = {};
+    teams.teamtwo = {};
+
+    // Create team one object
+    teamOne.forEach(princess => {
+      teams.teamone[princess[0]] = {
+        name: princess[1],
+        img: princess[2]
+      };
+    });
+
+    // Create team two object
+    teamTwo.forEach(princess => {
+      teams.teamtwo[princess[0]] = {
+        name: princess[1],
+        img: princess[2]
+      };
+    });
+
+    console.log(teams);
+
+    //Save / update teams in db
+    await fetch("http://localhost:4000/teams/1", {
+      method: "DELETE"
+    });
+    await fetch("http://localhost:4000/teams", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      body: JSON.stringify(teams)
+    });
+
     setPlayerClasses([playerClasses[0], playerClasses[1]]);
     setCurrentPlayer(nextPlayer);
   }
 
   const princessData = [
-    ["Princess Bubblegum", "./assets/bubblegum.png"],
-    ["Lumpy Space Princess", "./assets/lumpyspace.png"],
-    ["Wild Berry Princess", "./assets/wildberry.png"],
-    ["Hot Dog Princess", "./assets/hotdog.png"],
-    ["Flame Princess", "./assets/flame.png"],
-    ["Bee Princess", "./assets/bee.png"],
-    ["Cotton Candy Princess", "./assets/cottoncandy.png"],
-    ["Cookie Princess", "./assets/cookie.png"],
-    ["Desert Princess", "./assets/desert.png"],
-    ["Breakfast Princess", "./assets/breakfast.png"],
-    ["Jungle Princess", "./assets/jungle.png"],
-    ["Toast Princess", "./assets/toast.png"],
-    ["Muscle Princess", "./assets/muscle.png"],
-    ["Frozen Yogurt Princess", "./assets/Frozenyogurt.png"],
-    ["Slime Princess", "./assets/slime.png"],
-    ["Peanut Princess", "./assets/peanut.png"]
+    ["01", "Princess Bubblegum", "./assets/bubblegum.png"],
+    ["02", "Lumpy Space Princess", "./assets/lumpyspace.png"],
+    ["03", "Wild Berry Princess", "./assets/wildberry.png"],
+    ["04", "Hot Dog Princess", "./assets/hotdog.png"],
+    ["05", "Flame Princess", "./assets/flame.png"],
+    ["06", "Bee Princess", "./assets/bee.png"],
+    ["07", "Cotton Candy Princess", "./assets/cottoncandy.png"],
+    ["08", "Cookie Princess", "./assets/cookie.png"],
+    ["09", "Desert Princess", "./assets/desert.png"],
+    ["10", "Breakfast Princess", "./assets/breakfast.png"],
+    ["11", "Jungle Princess", "./assets/jungle.png"],
+    ["12", "Toast Princess", "./assets/toast.png"],
+    ["13", "Muscle Princess", "./assets/muscle.png"],
+    ["14", "Frozen Yogurt Princess", "./assets/Frozenyogurt.png"],
+    ["15", "Slime Princess", "./assets/slime.png"],
+    ["16", "Peanut Princess", "./assets/peanut.png"]
   ];
   return (
     <>
@@ -87,7 +121,7 @@ function Characters(props) {
             return (
               <Princess
                 className="princess"
-                imgsource={princess[1]}
+                imgsource={princess[2]}
                 onClick={event => handleClick(event, ...princess)}
               />
             );

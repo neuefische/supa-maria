@@ -80,5 +80,17 @@
       "id": "16",
       "img": "./assets/img/peanut.png"
     }
+  ],
+  "teams": [
+    {
+      "teamone": {
+        "01": {
+          "name": "Princess Bubblegum",
+          "img": "./assets/bubblegum.png"
+        }
+      },
+      "teamtwo": {},
+      "id": 1
+    }
   ]
 }

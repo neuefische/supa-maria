@@ -105,7 +105,7 @@ function Characters(props) {
     ["11", "Jungle Princess", "./assets/jungle.png"],
     ["12", "Toast Princess", "./assets/toast.png"],
     ["13", "Muscle Princess", "./assets/muscle.png"],
-    ["14", "Frozen Yogurt Princess", "./assets/Frozenyogurt.png"],
+    ["14", "Frozen Yogurt Princess", "./assets/frozenyogurt.png"],
     ["15", "Slime Princess", "./assets/slime.png"],
     ["16", "Peanut Princess", "./assets/peanut.png"]
   ];

@@ -9,8 +9,8 @@ function Characters(props) {
     "playerOne active",
     "playerTwo"
   ]);
-  const [teamOne, setTeamOne] = React.useState(Array());
-  const [teamTwo, setTeamTwo] = React.useState(Array());
+  const [teamOne, setTeamOne] = React.useState([]);
+  const [teamTwo, setTeamTwo] = React.useState([]);
   async function handleClick(event, princessID, princessName, princessImage) {
     // Stop functionality if already 8 princesses are selected
     if (teamOne.length === 4 && teamTwo.length === 4) {

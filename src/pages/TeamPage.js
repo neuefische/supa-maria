@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Princess from "../components/Princess";
 import Player from "../components/Player";
 import Button from "../components/Button";
+import "./TeamPage.css";
 import { Link } from "react-router-dom";
 
 function Result() {
@@ -38,7 +39,10 @@ function Result() {
       <div className="teamOne">
         {teamOne.map(function(princess) {
           return (
-            <Princess className="princess-playerOne" imgsource={princess[2]} />
+            <Princess
+              className="princess-playerOne princess-results"
+              imgsource={princess[2]}
+            />
           );
         })}
       </div>
@@ -46,7 +50,10 @@ function Result() {
       <div className="teamTwo">
         {teamTwo.map(function(princess) {
           return (
-            <Princess className="princess-playerTwo" imgsource={princess[2]} />
+            <Princess
+              className="princess-playerTwo princess-results"
+              imgsource={princess[2]}
+            />
           );
         })}
       </div>

@@ -36,7 +36,7 @@ function Result() {
     <main>
       <Player className="playerOne">Player 1</Player>
       <div className="teamOne">
-        {teamOne.map(function(princess, index) {
+        {teamOne.map(function(princess) {
           return (
             <Princess className="princess-playerOne" imgsource={princess[2]} />
           );
@@ -44,14 +44,14 @@ function Result() {
       </div>
       <Player className="playerTwo">Player 2</Player>
       <div className="teamTwo">
-        {teamTwo.map(function(princess, index) {
+        {teamTwo.map(function(princess) {
           return (
             <Princess className="princess-playerTwo" imgsource={princess[2]} />
           );
         })}
       </div>
       <Button className="">Start Game</Button>
-      <Link to="/select">SelectPage</Link>{" "}
+      <Link to="/select">SelectPage</Link>
     </main>
   );
 }

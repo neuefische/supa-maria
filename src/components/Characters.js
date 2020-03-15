@@ -11,7 +11,7 @@ function Characters(props) {
   ]);
   const [teamOne, setTeamOne] = React.useState(Array());
   const [teamTwo, setTeamTwo] = React.useState(Array());
-  function handleClick(event, princess, princessImage) {
+  async function handleClick(event, princessName, princessImage) {
     // Stop functionality if already 8 princesses are selected
     if (teamOne.length === 4 && teamTwo.length === 4) {
       return;
@@ -20,7 +20,7 @@ function Characters(props) {
     // Stop if princess is already in a team
     const allTeams = teamOne.concat(teamTwo);
     const alreadySelected = allTeams.find(
-      selectedPrincess => selectedPrincess[0] === princess
+      selectedPrincess => selectedPrincess[0] === princessName
     )
       ? true
       : false;
@@ -28,6 +28,12 @@ function Characters(props) {
     if (alreadySelected) {
       return;
     }
+
+    // Create princess object to save it in db
+    const princess = {
+      name: princessName,
+      imgsource: princessImage
+    };
 
     // Set next player
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
@@ -39,9 +45,17 @@ function Characters(props) {
 
       // Save selected princess in array
       event.currentTarget.className = "princess-playerOne";
-      teamOne.push([princess, princessImage]);
+      teamOne.push([princessName, princessImage]);
       setTeamOne(teamOne);
-      console.log(teamOne);
+
+      // Save princess in team one
+      await fetch("http://localhost:4000/team-one", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8"
+        },
+        body: JSON.stringify(princess)
+      });
     } else {
       // Toggle active player class
       playerClasses[0] = playerClasses[0].concat(" active");
@@ -49,10 +63,19 @@ function Characters(props) {
 
       // Save selected princess in array
       event.currentTarget.className = "princess-playerTwo";
-      teamTwo.push([princess, princessImage]);
+      teamTwo.push([princessName, princessImage]);
       setTeamTwo(teamTwo);
-      console.log(teamTwo);
+
+      // Save princess in team two
+      await fetch("http://localhost:4000/team-two", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json;charset=utf-8"
+        },
+        body: JSON.stringify(princess)
+      });
     }
+
     setPlayerClasses([playerClasses[0], playerClasses[1]]);
     setCurrentPlayer(nextPlayer);
   }

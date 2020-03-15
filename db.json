@@ -81,6 +81,48 @@
       "img": "./assets/img/peanut.png"
     }
   ],
-  "team-one": [],
-  "team-two": []
+  "team-one": [
+    {
+      "name": "Flame Princess",
+      "imgsource": "./assets/flame.png",
+      "id": 1
+    },
+    {
+      "name": "Slime Princess",
+      "imgsource": "./assets/slime.png",
+      "id": 2
+    },
+    {
+      "name": "Bee Princess",
+      "imgsource": "./assets/bee.png",
+      "id": 3
+    },
+    {
+      "name": "Wild Berry Princess",
+      "imgsource": "./assets/wildberry.png",
+      "id": 4
+    }
+  ],
+  "team-two": [
+    {
+      "name": "Breakfast Princess",
+      "imgsource": "./assets/breakfast.png",
+      "id": 1
+    },
+    {
+      "name": "Jungle Princess",
+      "imgsource": "./assets/jungle.png",
+      "id": 2
+    },
+    {
+      "name": "Cotton Candy Princess",
+      "imgsource": "./assets/cottoncandy.png",
+      "id": 3
+    },
+    {
+      "name": "Lumpy Space Princess",
+      "imgsource": "./assets/lumpyspace.png",
+      "id": 4
+    }
+  ]
 }

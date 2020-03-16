@@ -1,15 +1,26 @@
 import React from "react";
-import Crown from "../assets/crown.png";
-import "./Header.css";
+import Logo from "./Crown.js";
+import Title1 from "./Title.js";
+import Title2 from "./Title.js";
+import styled from "@emotion/styled";
 
-function Header(props) {
+const Header = styled.header`
+  margin: 0px;
+  height: 128px;
+  background-color: #953f70;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+function Appheader(props) {
   return (
-    <header className="header" {...props}>
-      <h1 className="title">Supa</h1>
-      <img className="logo" src={Crown} alt="Crown"></img>
-      <h1 className="title">Maria</h1>
-    </header>
+    <Header>
+      <Title1>Supa</Title1>
+      <Logo />
+      <Title2>Maria</Title2>
+    </Header>
   );
 }
 
-export default Header;
+export default Appheader;

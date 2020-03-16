@@ -1,7 +1,8 @@
 import React from "react";
 import Princess from "./Princess";
 import Player from "./Player";
-import "./Characters.css";
+
+import styled from "@emotion/styled";
 
 function Characters(props) {
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
@@ -110,14 +111,40 @@ function Characters(props) {
     ["15", "Slime Princess", "./assets/slime.png"],
     ["16", "Peanut Princess", "./assets/peanut.png"]
   ];
+
+  const Players = styled.section`
+      display: flex;
+      flex-direction: row;
+    }
+  `;
+
+  const CharactersWrapper = styled.div`
+    background-color: #ffc4eb;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 600px;
+  `;
+
+  const CharactersCSS = styled.section`
+    border-radius: 10px;
+    margin: 10px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 600px;
+  `;
+
   return (
     <>
-      <section className="players">
+      <Players>
         <Player className={playerClasses[0]}>Player 1</Player>
         <Player className={playerClasses[1]}>Player 2</Player>
-      </section>
-      <section className="characters" {...props}>
-        <div className="charactersWrapper">
+      </Players>
+      <CharactersCSS {...props}>
+        <CharactersWrapper>
           {princessData.map(function(princess, index) {
             return (
               <Princess
@@ -127,8 +154,8 @@ function Characters(props) {
               />
             );
           })}
-        </div>
-      </section>
+        </CharactersWrapper>
+      </CharactersCSS>
     </>
   );
 }

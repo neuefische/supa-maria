@@ -81,5 +81,34 @@
       "img": "./assets/img/peanut.png"
     }
   ],
-  "teams": []
+  "teams": [
+    {
+      "id": 2
+    },
+    {
+      "teamone": {
+        "02": {
+          "name": "Lumpy Space Princess",
+          "img": "./assets/lumpyspace.png"
+        }
+      },
+      "teamtwo": {},
+      "id": 3
+    },
+    {
+      "teamone": {
+        "02": {
+          "name": "Lumpy Space Princess",
+          "img": "./assets/lumpyspace.png"
+        }
+      },
+      "teamtwo": {
+        "01": {
+          "name": "Princess Bubblegum",
+          "img": "./assets/bubblegum.png"
+        }
+      },
+      "id": 4
+    }
+  ]
 }

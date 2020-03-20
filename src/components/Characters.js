@@ -2,6 +2,7 @@ import React from "react";
 import Princess from "./Princess";
 import Player from "./Player";
 import "./Characters.css";
+import { getCharacters } from "../api/game";
 
 function Characters(props) {
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
@@ -91,6 +92,13 @@ function Characters(props) {
     setPlayerClasses([playerClasses[0], playerClasses[1]]);
     setCurrentPlayer(nextPlayer);
   }
+
+  async function doGetCharacters() {
+    const characters = await getCharacters();
+    console.log(characters);
+  }
+
+  doGetCharacters();
 
   const princessData = [
     ["01", "Princess Bubblegum", "./assets/bubblegum.png"],

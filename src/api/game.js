@@ -4,3 +4,9 @@ const CHARACTERS_API =
 const GAMES_API =
   process.env.REACT_APP_GAMES_API ||
   "https://my-json-server.typicode.com/neuefische/supa-maria/Games";
+
+export async function getCharacters() {
+  const response = await fetch(CHARACTERS_API);
+  const results = await response.json();
+  return results;
+}

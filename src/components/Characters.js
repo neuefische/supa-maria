@@ -48,6 +48,8 @@ function Characters(props) {
     setCharacters(characters);
     setCurrentPlayer(nextPlayer);
   }
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState(false);
 
   const Players = styled.section`
       display: flex;
@@ -76,10 +78,16 @@ function Characters(props) {
 
   React.useEffect(() => {
     async function doGetCharacters() {
-      const allCharacters = await getCharacters();
-      setCharacters(allCharacters);
+      try {
+        const allCharacters = await getCharacters();
+        setCharacters(allCharacters);
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
     }
+    setIsLoading(true);
     doGetCharacters();
+    setIsLoading(false);
   }, []);
 
   // Save / update teams in db
@@ -95,6 +103,13 @@ function Characters(props) {
     return createdTeam;
   }
 
+  if (errorMessage) {
+    return <div>{errorMessage}</div>;
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <Players>

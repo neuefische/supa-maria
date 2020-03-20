@@ -1,69 +1,65 @@
 import React, { useEffect } from "react";
 import Princess from "../components/Princess";
-import { PlayerOne, PlayerTwo } from "../components/Player";
+import Player from "../components/Player";
 import Button from "../components/Button";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
 function Result() {
-  const [teamOne, setTeamOne] = React.useState([]);
-  const [teamTwo, setTeamTwo] = React.useState([]);
+  const [teams, setTeams] = React.useState([]);
 
   useEffect(() => {
-    async function getTeamOne() {
-      const response = await fetch("http://localhost:4000/teams/1");
+    async function getTeams() {
+      const response = await fetch("http://localhost:4000/teams/");
       const results = await response.json();
-      const princessIDs = Object.keys(results.teamone);
-      const teamOne = princessIDs.map(id => {
-        return [id, results.teamone[id].name, results.teamone[id].img];
-      });
-      setTeamOne(teamOne);
+      setTeams(results);
     }
-
-    async function getTeamTwo() {
-      const response = await fetch("http://localhost:4000/teams/1");
-      const results = await response.json();
-      const princessIDs = Object.keys(results.teamtwo);
-      const teamTwo = princessIDs.map(id => {
-        return [id, results.teamtwo[id].name, results.teamtwo[id].img];
-      });
-      setTeamTwo(teamTwo);
-    }
-    getTeamOne();
-    getTeamTwo();
+    getTeams();
   }, []);
 
-  const TeamOne = styled.teamOne`
+  // set teamOne and teamTwo
+
+  const TeamOne = styled.div`
     display: flex;
   `;
 
-  const TeamTwo = styled.teamTwo`
+  const TeamTwo = styled.div`
     display: flex;
   `;
 
   return (
     <main>
-      <PlayerOne>Player 1</PlayerOne>
+      <Player player={1}>Player 1</Player>
       <TeamOne>
-        {teamOne.map(function(princess) {
-          return (
-            <Princess
-              className="princess-playerOne princess-results"
-              imgsource={princess[2]}
-            />
-          );
-        })}
+        {teams
+          .filter(princess => princess.team === 1)
+          .map(function(princess) {
+            return (
+              <Princess
+                key={princess.id}
+                className="princess-playerOne princess-results"
+                team={princess.team}
+                imgSource={princess.img}
+                shownOnTeamPage={true}
+              />
+            );
+          })}
       </TeamOne>
-      <PlayerTwo>Player 2</PlayerTwo>
+      <Player player={2}>Player 2</Player>
       <TeamTwo>
-        {teamTwo.map(function(princess) {
-          return (
-            <Princess
-              className="princess-playerTwo princess-results"
-              imgsource={princess[2]}
-            />
-          );
-        })}
+        {teams
+          .filter(princess => princess.team === 2)
+          .map(function(princess) {
+            return (
+              <Princess
+                key={princess.id}
+                className="princess-playerTwo princess-results"
+                team={princess.team}
+                imgSource={princess.img}
+                shownOnTeamPage={true}
+              />
+            );
+          })}
       </TeamTwo>
       <Button className="">Start Game</Button>
       <Link to="/select">SelectPage</Link>

@@ -1,35 +1,23 @@
 import React from "react";
 import Princess from "./Princess";
-import {
-  PlayerOne,
-  PlayerTwo,
-  PlayerOneActive,
-  PlayerTwoActive
-} from "./Player";
+import Player from "./Player";
 import styled from "@emotion/styled";
+import { getCharacters } from "../api/game";
 
 function Characters(props) {
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
-  const [playerClasses, setPlayerClasses] = React.useState([
-    PlayerOneActive,
-    PlayerTwo
-  ]);
-  const [teamOne, setTeamOne] = React.useState([]);
-  const [teamTwo, setTeamTwo] = React.useState([]);
-  const [isActive, setIsActive] = React.useState(true);
+  const [teams, setTeams] = React.useState([]);
+  const [characters, setCharacters] = React.useState([]);
 
-  async function handleClick(event, princessID, princessName, princessImage) {
-    setIsActive(false);
+  async function handleClick(character) {
     // Stop functionality if already 8 princesses are selected
-    if (teamOne.length === 4 && teamTwo.length === 4) {
+    if (teams.length === 8) {
       return;
     }
 
     // Stop if princess is already in a team
-    const allTeams = teamOne.concat(teamTwo);
-
-    const alreadySelected = allTeams.find(
-      selectedPrincess => selectedPrincess[1] === princessName
+    const alreadySelected = teams.find(
+      selectedPrincess => selectedPrincess.id === character.id
     )
       ? true
       : false;
@@ -41,84 +29,25 @@ function Characters(props) {
     // Set next player
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
 
-    if (currentPlayer === 1) {
-      isActive = true;
-      // Toggle active player class
-      // playerClasses[0] = playerClasses[0].replace(" active", "");
-      // playerClasses[1] = playerClasses[1].concat(" active");
+    // Save selected princess in object
+    const newPrincess = {
+      name: character.name,
+      id: character.id,
+      img: character.img,
+      team: currentPlayer
+    };
+    teams.push(newPrincess);
+    setTeams(teams);
 
-      // Save selected princess in array
-      event.currentTarget.className = "princess-playerOne";
-      teamOne.push([princessID, princessName, princessImage]);
-      setTeamOne(teamOne);
-    } else {
-      // Toggle active player class
-      // playerClasses[0] = playerClasses[0].concat(" active");
-      // playerClasses[1] = playerClasses[1].replace(" active", "");
-
-      // Save selected princess in array
-      event.currentTarget.className = "princess-playerTwo";
-      teamTwo.push([princessID, princessName, princessImage]);
-      setTeamTwo(teamTwo);
-    }
-
-    // Create teams object to save it in db
-    const teams = {};
-    teams.teamone = {};
-    teams.teamtwo = {};
-
-    // Create team one object
-    teamOne.forEach(princess => {
-      teams.teamone[princess[0]] = {
-        name: princess[1],
-        img: princess[2]
-      };
+    // Save selected princess in characters
+    const characterIds = characters.map(character => {
+      return character.id;
     });
-
-    // Create team two object
-    teamTwo.forEach(princess => {
-      teams.teamtwo[princess[0]] = {
-        name: princess[1],
-        img: princess[2]
-      };
-    });
-
-    console.log(teams);
-
-    //Save / update teams in db
-    await fetch("http://localhost:4000/teams/1", {
-      method: "DELETE"
-    });
-    await fetch("http://localhost:4000/teams", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8"
-      },
-      body: JSON.stringify(teams)
-    });
-
-    setPlayerClasses([playerClasses[0], playerClasses[1]]);
+    const newPrincessIndex = Number(characterIds.indexOf(character.id));
+    characters[newPrincessIndex] = newPrincess;
+    setCharacters(characters);
     setCurrentPlayer(nextPlayer);
   }
-
-  const princessData = [
-    ["01", "Princess Bubblegum", "./assets/bubblegum.png"],
-    ["02", "Lumpy Space Princess", "./assets/lumpyspace.png"],
-    ["03", "Wild Berry Princess", "./assets/wildberry.png"],
-    ["04", "Hot Dog Princess", "./assets/hotdog.png"],
-    ["05", "Flame Princess", "./assets/flame.png"],
-    ["06", "Bee Princess", "./assets/bee.png"],
-    ["07", "Cotton Candy Princess", "./assets/cottoncandy.png"],
-    ["08", "Cookie Princess", "./assets/cookie.png"],
-    ["09", "Desert Princess", "./assets/desert.png"],
-    ["10", "Breakfast Princess", "./assets/breakfast.png"],
-    ["11", "Jungle Princess", "./assets/jungle.png"],
-    ["12", "Toast Princess", "./assets/toast.png"],
-    ["13", "Muscle Princess", "./assets/muscle.png"],
-    ["14", "Frozen Yogurt Princess", "./assets/frozenyogurt.png"],
-    ["15", "Slime Princess", "./assets/slime.png"],
-    ["16", "Peanut Princess", "./assets/peanut.png"]
-  ];
 
   const Players = styled.section`
       display: flex;
@@ -145,25 +74,47 @@ function Characters(props) {
     max-height: 600px;
   `;
 
+  React.useEffect(() => {
+    async function doGetCharacters() {
+      const allCharacters = await getCharacters();
+      setCharacters(allCharacters);
+    }
+    doGetCharacters();
+  }, []);
+
+  // Save / update teams in db
+  async function postTeam(teams) {
+    const response = await fetch("http://localhost:4000/teams", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8"
+      },
+      body: JSON.stringify(teams)
+    });
+    const createdTeam = await response.json();
+    return createdTeam;
+  }
+
   return (
     <>
       <Players>
-        {/* <Player className={playerClasses[0]}>Player 1</Player>
-        <Player className={playerClasses[1]}>Player 2</Player> */}
-        <PlayerOne isActive={true}>Player 1</PlayerOne>
-        <PlayerTwo isActive={false}>Player 2</PlayerTwo>
+        <Player player={1} currentPlayer={currentPlayer}>
+          Player 1
+        </Player>
+        <Player player={2} currentPlayer={currentPlayer}>
+          Player 2
+        </Player>
       </Players>
-      <CharactersCSS {...props}>
+      <CharactersCSS>
         <CharactersWrapper>
-          {princessData.map(function(princess, index) {
-            return (
-              <Princess
-                className="princess"
-                imgsource={princess[2]}
-                onClick={event => handleClick(event, ...princess)}
-              />
-            );
-          })}
+          {characters.map(character => (
+            <Princess
+              key={character.id}
+              imgSource={character.img}
+              team={character.team}
+              onPrincessClick={() => handleClick(character)}
+            ></Princess>
+          ))}
         </CharactersWrapper>
       </CharactersCSS>
     </>

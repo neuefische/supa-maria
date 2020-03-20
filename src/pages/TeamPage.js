@@ -41,7 +41,7 @@ function Result() {
           return (
             <Princess
               className="princess-playerOne princess-results"
-              imgsource={princess[2]}
+              imgSource={princess[2]}
             />
           );
         })}
@@ -52,7 +52,7 @@ function Result() {
           return (
             <Princess
               className="princess-playerTwo princess-results"
-              imgsource={princess[2]}
+              imgSource={princess[2]}
             />
           );
         })}

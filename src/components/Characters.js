@@ -12,6 +12,9 @@ function Characters(props) {
   ]);
   const [teamOne, setTeamOne] = React.useState([]);
   const [teamTwo, setTeamTwo] = React.useState([]);
+
+  const [characters, setCharacters] = React.useState([]);
+
   async function handleClick(event, princessID, princessName, princessImage) {
     // Stop functionality if already 8 princesses are selected
     if (teamOne.length === 4 && teamTwo.length === 4) {
@@ -75,8 +78,6 @@ function Characters(props) {
       };
     });
 
-    console.log(teams);
-
     //Save / update teams in db
     await fetch("http://localhost:4000/teams/1", {
       method: "DELETE"
@@ -93,31 +94,14 @@ function Characters(props) {
     setCurrentPlayer(nextPlayer);
   }
 
-  async function doGetCharacters() {
-    const characters = await getCharacters();
-    console.log(characters);
-  }
+  React.useEffect(() => {
+    async function doGetCharacters() {
+      const allCharacters = await getCharacters();
+      setCharacters(allCharacters);
+    }
+    doGetCharacters();
+  }, []);
 
-  doGetCharacters();
-
-  const princessData = [
-    ["01", "Princess Bubblegum", "./assets/bubblegum.png"],
-    ["02", "Lumpy Space Princess", "./assets/lumpyspace.png"],
-    ["03", "Wild Berry Princess", "./assets/wildberry.png"],
-    ["04", "Hot Dog Princess", "./assets/hotdog.png"],
-    ["05", "Flame Princess", "./assets/flame.png"],
-    ["06", "Bee Princess", "./assets/bee.png"],
-    ["07", "Cotton Candy Princess", "./assets/cottoncandy.png"],
-    ["08", "Cookie Princess", "./assets/cookie.png"],
-    ["09", "Desert Princess", "./assets/desert.png"],
-    ["10", "Breakfast Princess", "./assets/breakfast.png"],
-    ["11", "Jungle Princess", "./assets/jungle.png"],
-    ["12", "Toast Princess", "./assets/toast.png"],
-    ["13", "Muscle Princess", "./assets/muscle.png"],
-    ["14", "Frozen Yogurt Princess", "./assets/frozenyogurt.png"],
-    ["15", "Slime Princess", "./assets/slime.png"],
-    ["16", "Peanut Princess", "./assets/peanut.png"]
-  ];
   return (
     <>
       <section className="players">
@@ -126,7 +110,23 @@ function Characters(props) {
       </section>
       <section className="characters" {...props}>
         <div className="charactersWrapper">
-          {princessData.map(function(princess, index) {
+          {characters.map(character => {
+            return (
+              <Princess
+                imgSource={character.img}
+                className="princess"
+                onClick={event =>
+                  handleClick(
+                    event,
+                    character.id,
+                    character.name,
+                    character.img
+                  )
+                }
+              />
+            );
+          })}
+          {/* {princessData.map(function(princess, index) {
             return (
               <Princess
                 className="princess"
@@ -134,7 +134,7 @@ function Characters(props) {
                 onClick={event => handleClick(event, ...princess)}
               />
             );
-          })}
+          })} */}
         </div>
       </section>
     </>

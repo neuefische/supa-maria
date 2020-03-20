@@ -1,12 +1,10 @@
 import React from "react";
 import "./Princess.css";
 
-function Princess(props) {
-  const imgPath = props.imgsource;
-
+function Princess({ imgSource, ...other }) {
   return (
-    <div className="princess" {...props}>
-      <img class="princessImage" src={imgPath} alt="princess" />
+    <div {...other}>
+      <img class="princessImage" src={imgSource} alt="princess" />
     </div>
   );
 }

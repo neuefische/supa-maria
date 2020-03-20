@@ -1,12 +1,10 @@
 import styled from "@emotion/styled";
 
 const ButtonDisabled = styled.button`
-  background: rgb(234, 234, 234);
-  background: radial-gradient(
-    circle,
-    rgba(234, 234, 234, 1) 0%,
-    rgba(178, 178, 178, 1) 100%
-  );
+  ${props =>
+    props.disabled
+      ? "background: radial-gradient(circle,rgba(234, 234, 234, 1) 0%,rgba(178, 178, 178, 1) 100%);cursor: not-allowed;"
+      : "background: red;cursor: pointer;"}
   margin: 10px;
   padding: 10px 10px;
   width: 100%;
@@ -16,7 +14,6 @@ const ButtonDisabled = styled.button`
   font-family: "Sweet Cake", serif;
   font-size: 2.5rem;
   color: white;
-  cursor: not-allowed;
 `;
 
 // const ButtonConfirm = styled.button`

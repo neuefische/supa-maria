@@ -12,7 +12,7 @@ const Header = styled.header`
   flex-direction: row;
   justify-content: center;
 `;
-const SwitchButton = styled.switch`
+const SwitchButton = styled.button`
   border: none;
   background: none;
   height: 80px;

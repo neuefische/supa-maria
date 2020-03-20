@@ -16,7 +16,7 @@ function Characters(props) {
 
   async function handleClick(character) {
     // Stop functionality if already 8 princesses are selected
-    if (teams.length === 8) {
+    if (teamsAreFull) {
       return;
     }
 
@@ -52,6 +52,7 @@ function Characters(props) {
     characters[newPrincessIndex] = newPrincess;
     setCharacters(characters);
     setCurrentPlayer(nextPlayer);
+    setTeamsAreFull(teams.length === 8);
   }
 
   const Players = styled.section`
@@ -105,8 +106,6 @@ function Characters(props) {
     const createdTeam = await response.json();
     return createdTeam;
   }
-
-  setTeamsAreFull(teamOne.length === 4 && teamTwo.length === 4);
 
   const [isLoading, setIsLoading] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState(false);

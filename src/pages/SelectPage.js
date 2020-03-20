@@ -2,7 +2,6 @@ import React from "react";
 import styled from "@emotion/styled";
 
 import Characters from "../components/Characters";
-import Button from "../components/Button";
 import { Link } from "react-router-dom";
 
 const Headline = styled.header`
@@ -19,8 +18,6 @@ function Select() {
       <main>
         <Headline>Choose your princesses</Headline>
         <Characters className="characters"></Characters>
-        <Button className="button-disabled">confirm</Button>
-        <Link to="/result">TeamPage</Link>
       </main>
     </>
   );

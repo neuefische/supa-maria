@@ -3,11 +3,16 @@ import Princess from "./Princess";
 import Player from "./Player";
 import styled from "@emotion/styled";
 import { getCharacters } from "../api/game";
+import Button from "../components/Button";
+import { useHistory } from "react-router-dom";
 
 function Characters(props) {
+  const history = useHistory();
+
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
   const [teams, setTeams] = React.useState([]);
   const [characters, setCharacters] = React.useState([]);
+  const [teamsAreFull, setTeamsAreFull] = React.useState(false);
 
   async function handleClick(character) {
     // Stop functionality if already 8 princesses are selected
@@ -100,6 +105,9 @@ function Characters(props) {
     const createdTeam = await response.json();
     return createdTeam;
   }
+
+  setTeamsAreFull(teamOne.length === 4 && teamTwo.length === 4);
+
   const [isLoading, setIsLoading] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState(false);
 
@@ -147,6 +155,16 @@ function Characters(props) {
           ))}
         </CharactersWrapper>
       </CharactersCSS>
+      <section>
+        <Button
+          disabled={!teamsAreFull}
+          onClick={() => {
+            history.push("/result");
+          }}
+        >
+          confirm
+        </Button>
+      </section>
     </>
   );
 }

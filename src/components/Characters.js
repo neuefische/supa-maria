@@ -3,6 +3,7 @@ import Princess from "./Princess";
 import Player from "./Player";
 import "./Characters.css";
 import { getCharacters } from "../api/game";
+import Button from "../components/Button";
 
 function Characters(props) {
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
@@ -12,6 +13,7 @@ function Characters(props) {
   ]);
   const [teamOne, setTeamOne] = React.useState([]);
   const [teamTwo, setTeamTwo] = React.useState([]);
+  const [teamsAreFull, setTeamsAreFull] = React.useState(false);
 
   const [characters, setCharacters] = React.useState([]);
 
@@ -92,6 +94,7 @@ function Characters(props) {
 
     setPlayerClasses([playerClasses[0], playerClasses[1]]);
     setCurrentPlayer(nextPlayer);
+    setTeamsAreFull(teamOne.length === 4 && teamTwo.length === 4);
   }
   const [isLoading, setIsLoading] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState(false);
@@ -144,6 +147,9 @@ function Characters(props) {
             );
           })}
         </div>
+      </section>
+      <section>
+        <Button disabled={!teamsAreFull}>confirm</Button>
       </section>
     </>
   );

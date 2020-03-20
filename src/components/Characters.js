@@ -1,7 +1,7 @@
 import React from "react";
 import Princess from "./Princess";
 import Player from "./Player";
-import "./Characters.css";
+import styled from "@emotion/styled";
 import { getCharacters } from "../api/game";
 import Button from "../components/Button";
 import { useHistory } from "react-router-dom";
@@ -10,27 +10,19 @@ function Characters(props) {
   const history = useHistory();
 
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
-  const [playerClasses, setPlayerClasses] = React.useState([
-    "playerOne active",
-    "playerTwo"
-  ]);
-  const [teamOne, setTeamOne] = React.useState([]);
-  const [teamTwo, setTeamTwo] = React.useState([]);
+  const [teams, setTeams] = React.useState([]);
+  const [characters, setCharacters] = React.useState([]);
   const [teamsAreFull, setTeamsAreFull] = React.useState(false);
 
-  const [characters, setCharacters] = React.useState([]);
-
-  async function handleClick(event, princessID, princessName, princessImage) {
+  async function handleClick(character) {
     // Stop functionality if already 8 princesses are selected
-    if (teamOne.length === 4 && teamTwo.length === 4) {
+    if (teams.length === 8) {
       return;
     }
 
     // Stop if princess is already in a team
-    const allTeams = teamOne.concat(teamTwo);
-
-    const alreadySelected = allTeams.find(
-      selectedPrincess => selectedPrincess[1] === princessName
+    const alreadySelected = teams.find(
+      selectedPrincess => selectedPrincess.id === character.id
     )
       ? true
       : false;
@@ -42,63 +34,80 @@ function Characters(props) {
     // Set next player
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
 
-    if (currentPlayer === 1) {
-      // Toggle active player class
-      playerClasses[0] = playerClasses[0].replace(" active", "");
-      playerClasses[1] = playerClasses[1].concat(" active");
+    // Save selected princess in object
+    const newPrincess = {
+      name: character.name,
+      id: character.id,
+      img: character.img,
+      team: currentPlayer
+    };
+    teams.push(newPrincess);
+    setTeams(teams);
 
-      // Save selected princess in array
-      event.currentTarget.className = "princess-playerOne";
-      teamOne.push([princessID, princessName, princessImage]);
-      setTeamOne(teamOne);
-    } else {
-      // Toggle active player class
-      playerClasses[0] = playerClasses[0].concat(" active");
-      playerClasses[1] = playerClasses[1].replace(" active", "");
+    // Save selected princess in characters
+    const characterIds = characters.map(character => {
+      return character.id;
+    });
+    const newPrincessIndex = Number(characterIds.indexOf(character.id));
+    characters[newPrincessIndex] = newPrincess;
+    setCharacters(characters);
+    setCurrentPlayer(nextPlayer);
+  }
 
-      // Save selected princess in array
-      event.currentTarget.className = "princess-playerTwo";
-      teamTwo.push([princessID, princessName, princessImage]);
-      setTeamTwo(teamTwo);
+  const Players = styled.section`
+      display: flex;
+      flex-direction: row;
     }
+  `;
 
-    // Create teams object to save it in db
-    const teams = {};
-    teams.teamone = {};
-    teams.teamtwo = {};
+  const CharactersWrapper = styled.div`
+    background-color: #ffc4eb;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 600px;
+  `;
 
-    // Create team one object
-    teamOne.forEach(princess => {
-      teams.teamone[princess[0]] = {
-        name: princess[1],
-        img: princess[2]
-      };
-    });
+  const CharactersCSS = styled.section`
+    border-radius: 10px;
+    margin: 10px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 600px;
+  `;
 
-    // Create team two object
-    teamTwo.forEach(princess => {
-      teams.teamtwo[princess[0]] = {
-        name: princess[1],
-        img: princess[2]
-      };
-    });
+  React.useEffect(() => {
+    async function doGetCharacters() {
+      try {
+        const allCharacters = await getCharacters();
+        setCharacters(allCharacters);
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
+    }
+    setIsLoading(true);
+    doGetCharacters();
+    setIsLoading(false);
+  }, []);
 
-    //Save / update teams in db
-    await fetch("http://localhost:4000/teams/1", {
-      method: "DELETE"
-    });
-    await fetch("http://localhost:4000/teams", {
+  // Save / update teams in db
+  async function postTeam(teams) {
+    const response = await fetch("http://localhost:4000/teams", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8"
       },
       body: JSON.stringify(teams)
     });
-
-    setPlayerClasses([playerClasses[0], playerClasses[1]]);
-    setCurrentPlayer(nextPlayer);
-    setTeamsAreFull(teamOne.length === 4 && teamTwo.length === 4);
+    const createdTeam = await response.json();
+    return createdTeam;
   }
+
+  setTeamsAreFull(teamOne.length === 4 && teamTwo.length === 4);
+
   const [isLoading, setIsLoading] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState(false);
 
@@ -126,31 +135,26 @@ function Characters(props) {
 
   return (
     <>
-      <section className="players">
-        <Player className={playerClasses[0]}>Player 1</Player>
-        <Player className={playerClasses[1]}>Player 2</Player>
-      </section>
-      <section className="characters" {...props}>
-        <div className="charactersWrapper">
-          {characters.map(character => {
-            return (
-              <Princess
-                key={character.id}
-                imgSource={character.img}
-                className="princess"
-                onClick={event =>
-                  handleClick(
-                    event,
-                    character.id,
-                    character.name,
-                    character.img
-                  )
-                }
-              />
-            );
-          })}
-        </div>
-      </section>
+      <Players>
+        <Player player={1} currentPlayer={currentPlayer}>
+          Player 1
+        </Player>
+        <Player player={2} currentPlayer={currentPlayer}>
+          Player 2
+        </Player>
+      </Players>
+      <CharactersCSS>
+        <CharactersWrapper>
+          {characters.map(character => (
+            <Princess
+              key={character.id}
+              imgSource={character.img}
+              team={character.team}
+              onPrincessClick={() => handleClick(character)}
+            ></Princess>
+          ))}
+        </CharactersWrapper>
+      </CharactersCSS>
       <section>
         <Button
           disabled={!teamsAreFull}

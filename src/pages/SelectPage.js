@@ -1,14 +1,22 @@
 import React from "react";
-import "./SelectPage.css";
+import styled from "@emotion/styled";
 
 import Characters from "../components/Characters";
 import { Link } from "react-router-dom";
+
+const Headline = styled.header`
+  font-family: "Sweet Cake", serif;
+  color: white;
+  font-size: 3.7rem;
+  margin-bottom: 15px;
+  margin-top: 30px;
+`;
 
 function Select() {
   return (
     <>
       <main>
-        <h2 className="headline">Choose your princesses</h2>
+        <Headline>Choose your princesses</Headline>
         <Characters className="characters"></Characters>
       </main>
     </>

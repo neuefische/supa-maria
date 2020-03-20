@@ -83,19 +83,52 @@
   ],
   "teams": [
     {
-      "teamone": {
-        "04": {
-          "name": "Hot Dog Princess",
-          "img": "./assets/hotdog.png"
-        }
-      },
-      "teamtwo": {
-        "07": {
-          "name": "Cotton Candy Princess",
-          "img": "./assets/cottoncandy.png"
-        }
-      },
-      "id": 1
+      "name": "Princess Bubblegum",
+      "id": "01",
+      "img": "./assets/bubblegum.png",
+      "team": 1
+    },
+    {
+      "name": "Lumpy Space Princess",
+      "id": "02",
+      "img": "./assets/lumpyspace.png",
+      "team": 1
+    },
+    {
+      "name": "Wild Berry Princess",
+      "id": "03",
+      "img": "./assets/wildberry.png",
+      "team": 1
+    },
+    {
+      "name": "Hot Dog Princess",
+      "id": "04",
+      "img": "./assets/hotdog.png",
+      "team": 1
+    },
+    {
+      "name": "Flame Princess",
+      "id": "05",
+      "img": "./assets/flame.png",
+      "team": 2
+    },
+    {
+      "name": "Bee Princess",
+      "id": "06",
+      "img": "./assets/bee.png",
+      "team": 2
+    },
+    {
+      "name": "Cotton Candy Princess",
+      "id": "07",
+      "img": "./assets/cottoncandy.png",
+      "team": 2
+    },
+    {
+      "name": "Cookie Princess",
+      "id": "08",
+      "img": "./assets/cookie.png",
+      "team": 2
     }
   ]
 }

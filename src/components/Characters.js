@@ -1,19 +1,25 @@
 import React from "react";
 import Princess from "./Princess";
-import { PlayerOne, PlayerTwo } from "./Player";
-
+import {
+  PlayerOne,
+  PlayerTwo,
+  PlayerOneActive,
+  PlayerTwoActive
+} from "./Player";
 import styled from "@emotion/styled";
 
 function Characters(props) {
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
   const [playerClasses, setPlayerClasses] = React.useState([
-    "PlayerOne active",
-    "PlayerTwo"
+    PlayerOneActive,
+    PlayerTwo
   ]);
   const [teamOne, setTeamOne] = React.useState([]);
   const [teamTwo, setTeamTwo] = React.useState([]);
+  const [isActive, setIsActive] = React.useState(true);
 
   async function handleClick(event, princessID, princessName, princessImage) {
+    setIsActive(false);
     // Stop functionality if already 8 princesses are selected
     if (teamOne.length === 4 && teamTwo.length === 4) {
       return;
@@ -36,9 +42,10 @@ function Characters(props) {
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
 
     if (currentPlayer === 1) {
+      isActive = true;
       // Toggle active player class
-      playerClasses[0] = playerClasses[0].replace(" active", "");
-      playerClasses[1] = playerClasses[1].concat(" active");
+      // playerClasses[0] = playerClasses[0].replace(" active", "");
+      // playerClasses[1] = playerClasses[1].concat(" active");
 
       // Save selected princess in array
       event.currentTarget.className = "princess-playerOne";
@@ -46,8 +53,8 @@ function Characters(props) {
       setTeamOne(teamOne);
     } else {
       // Toggle active player class
-      playerClasses[0] = playerClasses[0].concat(" active");
-      playerClasses[1] = playerClasses[1].replace(" active", "");
+      // playerClasses[0] = playerClasses[0].concat(" active");
+      // playerClasses[1] = playerClasses[1].replace(" active", "");
 
       // Save selected princess in array
       event.currentTarget.className = "princess-playerTwo";
@@ -143,8 +150,8 @@ function Characters(props) {
       <Players>
         {/* <Player className={playerClasses[0]}>Player 1</Player>
         <Player className={playerClasses[1]}>Player 2</Player> */}
-        <PlayerOne>Player 1</PlayerOne>
-        <PlayerTwo>Player 2</PlayerTwo>
+        <PlayerOne isActive={true}>Player 1</PlayerOne>
+        <PlayerTwo isActive={false}>Player 2</PlayerTwo>
       </Players>
       <CharactersCSS {...props}>
         <CharactersWrapper>

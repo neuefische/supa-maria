@@ -1,5 +1,4 @@
-// import React from "react";
-// import "./Player.css";
+import React from "react";
 import styled from "@emotion/styled";
 
 export const PlayerOne = styled.div`
@@ -16,7 +15,7 @@ export const PlayerOne = styled.div`
   color: white;
 `;
 
-const PlayerOneActive = styled(PlayerOne)`
+export const PlayerOneActive = styled(PlayerOne)`
   background: yellow;
 `;
 
@@ -34,7 +33,7 @@ export const PlayerTwo = styled.div`
   color: white;
 `;
 
-const PlayerTwoActive = styled(PlayerTwo)`
+export const PlayerTwoActive = styled(PlayerTwo)`
   background: yellow;
 `;
 

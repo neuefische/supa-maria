@@ -48,8 +48,6 @@ function Characters(props) {
     setCharacters(characters);
     setCurrentPlayer(nextPlayer);
   }
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [errorMessage, setErrorMessage] = React.useState(false);
 
   const Players = styled.section`
       display: flex;
@@ -102,6 +100,22 @@ function Characters(props) {
     const createdTeam = await response.json();
     return createdTeam;
   }
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState(false);
+
+  React.useEffect(() => {
+    async function doGetCharacters() {
+      try {
+        const allCharacters = await getCharacters();
+        setCharacters(allCharacters);
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
+    }
+    setIsLoading(true);
+    doGetCharacters();
+    setIsLoading(false);
+  }, []);
 
   if (errorMessage) {
     return <div>{errorMessage}</div>;
@@ -110,6 +124,7 @@ function Characters(props) {
   if (isLoading) {
     return <div>Loading...</div>;
   }
+
   return (
     <>
       <Players>

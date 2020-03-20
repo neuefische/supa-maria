@@ -7,6 +7,9 @@ const GAMES_API = "http://localhost:4000/games";
 
 export async function getCharacters() {
   const response = await fetch(CHARACTERS_API);
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
   const results = await response.json();
   return results;
 }

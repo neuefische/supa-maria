@@ -127,15 +127,6 @@ function Characters(props) {
               />
             );
           })}
-          {/* {princessData.map(function(princess, index) {
-            return (
-              <Princess
-                className="princess"
-                imgsource={princess[2]}
-                onClick={event => handleClick(event, ...princess)}
-              />
-            );
-          })} */}
         </div>
       </section>
     </>

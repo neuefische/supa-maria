@@ -113,6 +113,7 @@ function Characters(props) {
           {characters.map(character => {
             return (
               <Princess
+                key={character.id}
                 imgSource={character.img}
                 className="princess"
                 onClick={event =>

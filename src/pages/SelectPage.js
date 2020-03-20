@@ -10,7 +10,6 @@ function Select() {
       <main>
         <h2 className="headline">Choose your princesses</h2>
         <Characters className="characters"></Characters>
-        <Link to="/result">TeamPage</Link>
       </main>
     </>
   );

@@ -4,8 +4,11 @@ import Player from "./Player";
 import "./Characters.css";
 import { getCharacters } from "../api/game";
 import Button from "../components/Button";
+import { useHistory } from "react-router-dom";
 
 function Characters(props) {
+  const history = useHistory();
+
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
   const [playerClasses, setPlayerClasses] = React.useState([
     "playerOne active",
@@ -149,7 +152,14 @@ function Characters(props) {
         </div>
       </section>
       <section>
-        <Button disabled={!teamsAreFull}>confirm</Button>
+        <Button
+          disabled={!teamsAreFull}
+          onClick={() => {
+            history.push("/result");
+          }}
+        >
+          confirm
+        </Button>
       </section>
     </>
   );

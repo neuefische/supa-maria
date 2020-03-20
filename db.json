@@ -87,17 +87,9 @@
         "04": {
           "name": "Hot Dog Princess",
           "img": "./assets/hotdog.png"
-        },
-        "06": {
-          "name": "Bee Princess",
-          "img": "./assets/bee.png"
         }
       },
       "teamtwo": {
-        "02": {
-          "name": "Lumpy Space Princess",
-          "img": "./assets/lumpyspace.png"
-        },
         "07": {
           "name": "Cotton Candy Princess",
           "img": "./assets/cottoncandy.png"

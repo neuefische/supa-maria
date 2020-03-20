@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Princess from "../components/Princess";
-import Player from "../components/Player";
+import { PlayerOne, PlayerTwo } from "../components/Player";
 import Button from "../components/Button";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
@@ -43,7 +43,7 @@ function Result() {
 
   return (
     <main>
-      <Player className="playerOne">Player 1</Player>
+      <PlayerOne>Player 1</PlayerOne>
       <TeamOne>
         {teamOne.map(function(princess) {
           return (
@@ -54,7 +54,7 @@ function Result() {
           );
         })}
       </TeamOne>
-      <Player className="playerTwo">Player 2</Player>
+      <PlayerTwo>Player 2</PlayerTwo>
       <TeamTwo>
         {teamTwo.map(function(princess) {
           return (

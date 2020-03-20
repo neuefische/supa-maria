@@ -1,17 +1,18 @@
 import React from "react";
 import Princess from "./Princess";
-import Player from "./Player";
+import { PlayerOne, PlayerTwo } from "./Player";
 
 import styled from "@emotion/styled";
 
 function Characters(props) {
   const [currentPlayer, setCurrentPlayer] = React.useState(1);
   const [playerClasses, setPlayerClasses] = React.useState([
-    "playerOne active",
-    "playerTwo"
+    "PlayerOne active",
+    "PlayerTwo"
   ]);
   const [teamOne, setTeamOne] = React.useState([]);
   const [teamTwo, setTeamTwo] = React.useState([]);
+
   async function handleClick(event, princessID, princessName, princessImage) {
     // Stop functionality if already 8 princesses are selected
     if (teamOne.length === 4 && teamTwo.length === 4) {
@@ -140,8 +141,10 @@ function Characters(props) {
   return (
     <>
       <Players>
-        <Player className={playerClasses[0]}>Player 1</Player>
-        <Player className={playerClasses[1]}>Player 2</Player>
+        {/* <Player className={playerClasses[0]}>Player 1</Player>
+        <Player className={playerClasses[1]}>Player 2</Player> */}
+        <PlayerOne>Player 1</PlayerOne>
+        <PlayerTwo>Player 2</PlayerTwo>
       </Players>
       <CharactersCSS {...props}>
         <CharactersWrapper>

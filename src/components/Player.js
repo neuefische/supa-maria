@@ -1,19 +1,43 @@
-import React from "react";
-import "./Player.css";
+// import React from "react";
+// import "./Player.css";
+import styled from "@emotion/styled";
 
-function Player(props) {
-  return <div className="player" {...props} />;
-}
+export const PlayerOne = styled.div`
+  background: rgb(234, 234, 234);
+  background: radial-gradient(circle, #b13edb 0%, #591f6e 100%);
+  margin: 10px;
+  padding: 10px 10px;
+  /* width: 100%; */
+  max-width: 350px;
+  height: 60px;
+  border-radius: 25px;
+  font-family: "Sweet Cake", serif;
+  font-size: 2.5rem;
+  color: white;
+`;
 
-export default Player;
+const PlayerOneActive = styled(PlayerOne)`
+  background: yellow;
+`;
 
-// const [xIsNext, setXIsNext] = React.useState(Math.random() > 0.5);
+export const PlayerTwo = styled.div`
+  background: rgb(234, 234, 234);
+  background: radial-gradient(circle, #ff7eeb 0%, #d10171 100%);
+  margin: 10px;
+  padding: 10px 10px;
+  /* width: 100%; */
+  max-width: 350px;
+  height: 60px;
+  border-radius: 25px;
+  font-family: "Sweet Cake", serif;
+  font-size: 2.5rem;
+  color: white;
+`;
 
-// const nextPlayer = xIsNext ? "Play" : "🍉";
-// const winner = calculateWinner(squares);
-// const status = winner ? `Winner is ${winner}` : `Next player: ${nextPlayer}`;
+const PlayerTwoActive = styled(PlayerTwo)`
+  background: yellow;
+`;
 
-// function handleClick(squareIndex) {
-//   if (squares[squareIndex] !== null || winner) {
-//     return;
-//   }
+// export function Player(props) {
+//   return <div className="player" {...props} />;
+// }

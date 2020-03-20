@@ -93,14 +93,30 @@ function Characters(props) {
     setPlayerClasses([playerClasses[0], playerClasses[1]]);
     setCurrentPlayer(nextPlayer);
   }
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState(false);
 
   React.useEffect(() => {
     async function doGetCharacters() {
-      const allCharacters = await getCharacters();
-      setCharacters(allCharacters);
+      try {
+        const allCharacters = await getCharacters();
+        setCharacters(allCharacters);
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
     }
+    setIsLoading(true);
     doGetCharacters();
+    setIsLoading(false);
   }, []);
+
+  if (errorMessage) {
+    return <div>{errorMessage}</div>;
+  }
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>

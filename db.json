@@ -81,5 +81,25 @@
       "img": "./assets/img/peanut.png"
     }
   ],
-  "teams": []
+  "teams": [
+    {
+      "teamone": {
+        "02": {
+          "name": "Lumpy Space Princess",
+          "img": "./assets/lumpyspace.png"
+        },
+        "07": {
+          "name": "Cotton Candy Princess",
+          "img": "./assets/cottoncandy.png"
+        }
+      },
+      "teamtwo": {
+        "03": {
+          "name": "Wild Berry Princess",
+          "img": "./assets/wildberry.png"
+        }
+      },
+      "id": 1
+    }
+  ]
 }

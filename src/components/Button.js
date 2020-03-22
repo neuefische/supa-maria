@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const ConfirmButton = styled.button`
+const Button = styled.button`
   ${props =>
     props.disabled
       ? "background: radial-gradient(circle,rgba(234, 234, 234, 1) 0%,rgba(178, 178, 178, 1) 100%);cursor: not-allowed;"
@@ -16,4 +16,4 @@ const ConfirmButton = styled.button`
   color: white;
 `;
 
-export default ConfirmButton;
+export default Button;

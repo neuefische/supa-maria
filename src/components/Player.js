@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "@emotion/styled";
 
 const backgroundPlayerOne = "radial-gradient(circle, #b13edb 0%, #591f6e 100%)";

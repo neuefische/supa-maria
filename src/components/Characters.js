@@ -63,8 +63,6 @@ function Characters(props) {
     border-radius: 10px;
     padding: 10px;
     width: 100%;
-    max-width: 600px;
-    max-height: 600px;
   `;
 
   const CharactersCSS = styled.section`

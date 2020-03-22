@@ -11,18 +11,17 @@ import GlobalStyles from "./components/GlobalStyles";
 
 function App() {
   const [theme, setTheme] = React.useState(bubblegum);
+  function switchTheme() {
+    setTheme(theme === bubblegum ? lumpyspace : bubblegum);
+  }
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyles />
-        <Header
-          onSwitchChangeClick={() => {
-            setTheme(theme === bubblegum ? lumpyspace : bubblegum);
-          }}
-        />
+        <Header onSwitchChangeClick={switchTheme} />
         <main className="main">
           <Switch>
-            <Route path="/result">
+            <Route path="/game/:gameId">
               <Result />
             </Route>
             <Route path="/">

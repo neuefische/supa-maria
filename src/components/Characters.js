@@ -3,7 +3,7 @@ import Princess from "./Princess";
 import Player from "./Player";
 import styled from "@emotion/styled";
 import { getCharacters } from "../api/game";
-import Button from "../components/Button";
+import ConfirmTeams from "./ConfirmTeams";
 import { useHistory } from "react-router-dom";
 
 function Characters(props) {
@@ -19,21 +19,17 @@ function Characters(props) {
     if (teamsAreFull) {
       return;
     }
-
     // Stop if princess is already in a team
     const alreadySelected = teams.find(
       selectedPrincess => selectedPrincess.id === character.id
     )
       ? true
       : false;
-
     if (alreadySelected) {
       return;
     }
-
     // Set next player
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
-
     // Save selected princess in object
     const newPrincess = {
       name: character.name,
@@ -43,7 +39,6 @@ function Characters(props) {
     };
     teams.push(newPrincess);
     setTeams(teams);
-
     // Save selected princess in characters
     const characterIds = characters.map(character => {
       return character.id;
@@ -68,8 +63,6 @@ function Characters(props) {
     border-radius: 10px;
     padding: 10px;
     width: 100%;
-    max-width: 600px;
-    max-height: 600px;
   `;
 
   const CharactersCSS = styled.section`
@@ -95,34 +88,27 @@ function Characters(props) {
   }, []);
 
   // Save / update teams in db
-  async function postTeam(teams) {
-    const response = await fetch("http://localhost:4000/teams", {
+  async function postGame(teams) {
+    const game = { teams: teams };
+    const response = await fetch("http://localhost:4000/games", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8"
       },
-      body: JSON.stringify(teams)
+      body: JSON.stringify(game)
     });
-    const createdTeam = await response.json();
-    return createdTeam;
+
+    const createdGame = await response.json();
+    return createdGame;
+  }
+
+  async function handleConfirmTeamsButtonClick(teams) {
+    const createdGame = await postGame(teams);
+    history.push(`/game/${createdGame.id}`);
   }
 
   const [isLoading, setIsLoading] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState(false);
-
-  React.useEffect(() => {
-    async function doGetCharacters() {
-      try {
-        const allCharacters = await getCharacters();
-        setCharacters(allCharacters);
-      } catch (error) {
-        setErrorMessage(error.message);
-      }
-    }
-    setIsLoading(true);
-    doGetCharacters();
-    setIsLoading(false);
-  }, []);
 
   if (errorMessage) {
     return <div>{errorMessage}</div>;
@@ -155,14 +141,13 @@ function Characters(props) {
         </CharactersWrapper>
       </CharactersCSS>
       <section>
-        <Button
+        <ConfirmTeams
+          teams={teams}
           disabled={!teamsAreFull}
-          onClick={() => {
-            history.push("/result");
-          }}
+          onConfirmTeamsButtonClick={handleConfirmTeamsButtonClick}
         >
           confirm
-        </Button>
+        </ConfirmTeams>
       </section>
     </>
   );

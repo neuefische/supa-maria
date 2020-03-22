@@ -1,5 +1,7 @@
 import React from "react";
 import { Global, css } from "@emotion/core";
+import AdventureTimeLogo from "../assets/Adventure Time Logo.ttf";
+import AdventureTimeFont from "../assets/Sweet Cake.otf";
 
 function GlobalStyles() {
   return (
@@ -31,13 +33,13 @@ function GlobalStyles() {
 
         @font-face {
           font-family: "Adventure Time Logo";
-          src: url("./assets/Adventure Time Logo.ttf");
+          src: url(${AdventureTimeLogo});
 
           font-style: normal;
         }
         @font-face {
           font-family: "Sweet Cake";
-          src: url("./assets/Sweet Cake.otf");
+          src: url(${AdventureTimeFont});
 
           font-style: normal;
         }

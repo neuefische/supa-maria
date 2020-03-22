@@ -8,9 +8,14 @@ import { useParams } from "react-router-dom";
 function Result() {
   const [teams, setTeams] = React.useState([]);
   const { gameId } = useParams();
+
+  const GAMES_API =
+    process.env.REACT_APP_GAMES_API ||
+    "https://my-json-server.typicode.com/neuefische/supa-maria/games";
+
   useEffect(() => {
     async function getTeams(gameId) {
-      const response = await fetch(`http://localhost:4000/games/${gameId}`);
+      const response = await fetch(`${GAMES_API}/${gameId}`);
       const game = await response.json();
       setTeams(game.teams);
     }

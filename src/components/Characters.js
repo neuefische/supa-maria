@@ -88,9 +88,13 @@ function Characters(props) {
   }, []);
 
   // Save / update teams in db
+  const GAMES_API =
+    process.env.REACT_APP_GAMES_API ||
+    "https://my-json-server.typicode.com/neuefische/supa-maria/games";
+
   async function postGame(teams) {
     const game = { teams: teams };
-    const response = await fetch("http://localhost:4000/games", {
+    const response = await fetch(`${GAMES_API}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8"

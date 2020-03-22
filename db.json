@@ -81,287 +81,13 @@
       "img": "/assets/peanut.png"
     }
   ],
-  "teams": [
-    {
-      "name": "Princess Bubblegum",
-      "id": "01",
-      "img": "/assets/bubblegum.png",
-      "team": 1
-    },
-    {
-      "name": "Lumpy Space Princess",
-      "id": "02",
-      "img": "/assets/lumpyspace.png",
-      "team": 1
-    },
-    {
-      "name": "Wild Berry Princess",
-      "id": "03",
-      "img": "/assets/wildberry.png",
-      "team": 1
-    },
-    {
-      "name": "Hot Dog Princess",
-      "id": "04",
-      "img": "/assets/hotdog.png",
-      "team": 1
-    },
-    {
-      "name": "Flame Princess",
-      "id": "05",
-      "img": "/assets/flame.png",
-      "team": 2
-    },
-    {
-      "name": "Bee Princess",
-      "id": "06",
-      "img": "/assets/bee.png",
-      "team": 2
-    },
-    {
-      "name": "Cotton Candy Princess",
-      "id": "07",
-      "img": "/assets/cottoncandy.png",
-      "team": 2
-    },
-    {
-      "name": "Cookie Princess",
-      "id": "08",
-      "img": "/assets/cookie.png",
-      "team": 2
-    }
-  ],
   "games": [
-    [
-      {
-        "name": "Princess Bubblegum",
-        "id": "01",
-        "img": "/assets/bubblegum.png",
-        "team": 1
-      },
-      {
-        "name": "Lumpy Space Princess",
-        "id": "02",
-        "img": "/assets/lumpyspace.png",
-        "team": 2
-      },
-      {
-        "name": "Wild Berry Princess",
-        "id": "03",
-        "img": "/assets/wildberry.png",
-        "team": 1
-      },
-      {
-        "name": "Hot Dog Princess",
-        "id": "04",
-        "img": "/assets/hotdog.png",
-        "team": 2
-      },
-      {
-        "name": "Flame Princess",
-        "id": "05",
-        "img": "/assets/flame.png",
-        "team": 1
-      },
-      {
-        "name": "Bee Princess",
-        "id": "06",
-        "img": "/assets/bee.png",
-        "team": 2
-      },
-      {
-        "name": "Cotton Candy Princess",
-        "id": "07",
-        "img": "/assets/cottoncandy.png",
-        "team": 1
-      },
-      {
-        "name": "Cookie Princess",
-        "id": "08",
-        "img": "/assets/cookie.png",
-        "team": 2
-      }
-    ],
-    [
-      {
-        "name": "Princess Bubblegum",
-        "id": "01",
-        "img": "/assets/bubblegum.png",
-        "team": 1
-      },
-      {
-        "name": "Flame Princess",
-        "id": "05",
-        "img": "/assets/flame.png",
-        "team": 2
-      },
-      {
-        "name": "Desert Princess",
-        "id": "09",
-        "img": "/assets/desert.png",
-        "team": 1
-      },
-      {
-        "name": "Muscle Princess",
-        "id": "13",
-        "img": "/assets/muscle.png",
-        "team": 2
-      },
-      {
-        "name": "Lumpy Space Princess",
-        "id": "02",
-        "img": "/assets/lumpyspace.png",
-        "team": 1
-      },
-      {
-        "name": "Bee Princess",
-        "id": "06",
-        "img": "/assets/bee.png",
-        "team": 2
-      },
-      {
-        "name": "Breakfast Princess",
-        "id": "10",
-        "img": "/assets/breakfast.png",
-        "team": 1
-      },
-      {
-        "name": "Frozen Yoghurt Princess",
-        "id": "14",
-        "img": "/assets/frozenyogurt.png",
-        "team": 2
-      }
-    ],
-    [
-      {
-        "name": "Princess Bubblegum",
-        "id": "01",
-        "img": "/assets/bubblegum.png",
-        "team": 1
-      },
-      {
-        "name": "Bee Princess",
-        "id": "06",
-        "img": "/assets/bee.png",
-        "team": 2
-      },
-      {
-        "name": "Jungle Princess",
-        "id": "11",
-        "img": "/assets/jungle.png",
-        "team": 1
-      },
-      {
-        "name": "Peanut Butter Princess",
-        "id": "16",
-        "img": "/assets/peanut.png",
-        "team": 2
-      },
-      {
-        "name": "Muscle Princess",
-        "id": "13",
-        "img": "/assets/muscle.png",
-        "team": 1
-      },
-      {
-        "name": "Breakfast Princess",
-        "id": "10",
-        "img": "/assets/breakfast.png",
-        "team": 2
-      },
-      {
-        "name": "Cotton Candy Princess",
-        "id": "07",
-        "img": "/assets/cottoncandy.png",
-        "team": 1
-      },
-      {
-        "name": "Hot Dog Princess",
-        "id": "04",
-        "img": "/assets/hotdog.png",
-        "team": 2
-      }
-    ],
-    [
-      {
-        "name": "Princess Bubblegum",
-        "id": "01",
-        "img": "/assets/bubblegum.png",
-        "team": 1
-      },
-      {
-        "name": "Flame Princess",
-        "id": "05",
-        "img": "/assets/flame.png",
-        "team": 2
-      },
-      {
-        "name": "Desert Princess",
-        "id": "09",
-        "img": "/assets/desert.png",
-        "team": 1
-      },
-      {
-        "name": "Muscle Princess",
-        "id": "13",
-        "img": "/assets/muscle.png",
-        "team": 2
-      },
-      {
-        "name": "Lumpy Space Princess",
-        "id": "02",
-        "img": "/assets/lumpyspace.png",
-        "team": 1
-      },
-      {
-        "name": "Bee Princess",
-        "id": "06",
-        "img": "/assets/bee.png",
-        "team": 2
-      },
-      {
-        "name": "Breakfast Princess",
-        "id": "10",
-        "img": "/assets/breakfast.png",
-        "team": 1
-      },
-      {
-        "name": "Frozen Yoghurt Princess",
-        "id": "14",
-        "img": "/assets/frozenyogurt.png",
-        "team": 2
-      }
-    ],
     {
       "teams": [
-        {
-          "name": "Princess Bubblegum",
-          "id": "01",
-          "img": "/assets/bubblegum.png",
-          "team": 1
-        },
-        {
-          "name": "Flame Princess",
-          "id": "05",
-          "img": "/assets/flame.png",
-          "team": 2
-        },
-        {
-          "name": "Desert Princess",
-          "id": "09",
-          "img": "/assets/desert.png",
-          "team": 1
-        },
         {
           "name": "Muscle Princess",
           "id": "13",
           "img": "/assets/muscle.png",
-          "team": 2
-        },
-        {
-          "name": "Wild Berry Princess",
-          "id": "03",
-          "img": "/assets/wildberry.png",
           "team": 1
         },
         {
@@ -371,26 +97,9 @@
           "team": 2
         },
         {
-          "name": "Jungle Princess",
-          "id": "11",
-          "img": "/assets/jungle.png",
-          "team": 1
-        },
-        {
           "name": "Slime Princess",
           "id": "15",
           "img": "/assets/slime.png",
-          "team": 2
-        }
-      ],
-      "id": 5
-    },
-    {
-      "teams": [
-        {
-          "name": "Princess Bubblegum",
-          "id": "01",
-          "img": "/assets/bubblegum.png",
           "team": 1
         },
         {
@@ -398,188 +107,17 @@
           "id": "05",
           "img": "/assets/flame.png",
           "team": 2
-        },
-        {
-          "name": "Desert Princess",
-          "id": "09",
-          "img": "/assets/desert.png",
-          "team": 1
-        },
-        {
-          "name": "Muscle Princess",
-          "id": "13",
-          "img": "/assets/muscle.png",
-          "team": 2
-        },
-        {
-          "name": "Wild Berry Princess",
-          "id": "03",
-          "img": "/assets/wildberry.png",
-          "team": 1
-        },
-        {
-          "name": "Cotton Candy Princess",
-          "id": "07",
-          "img": "/assets/cottoncandy.png",
-          "team": 2
-        },
-        {
-          "name": "Jungle Princess",
-          "id": "11",
-          "img": "/assets/jungle.png",
-          "team": 1
-        },
-        {
-          "name": "Slime Princess",
-          "id": "15",
-          "img": "/assets/slime.png",
-          "team": 2
-        }
-      ],
-      "id": 6
-    },
-    {
-      "teams": [
-        {
-          "name": "Princess Bubblegum",
-          "id": "01",
-          "img": "/assets/bubblegum.png",
-          "team": 1
-        },
-        {
-          "name": "Flame Princess",
-          "id": "05",
-          "img": "/assets/flame.png",
-          "team": 2
-        },
-        {
-          "name": "Desert Princess",
-          "id": "09",
-          "img": "/assets/desert.png",
-          "team": 1
-        },
-        {
-          "name": "Muscle Princess",
-          "id": "13",
-          "img": "/assets/muscle.png",
-          "team": 2
-        },
-        {
-          "name": "Wild Berry Princess",
-          "id": "03",
-          "img": "/assets/wildberry.png",
-          "team": 1
-        },
-        {
-          "name": "Cotton Candy Princess",
-          "id": "07",
-          "img": "/assets/cottoncandy.png",
-          "team": 2
-        },
-        {
-          "name": "Jungle Princess",
-          "id": "11",
-          "img": "/assets/jungle.png",
-          "team": 1
-        },
-        {
-          "name": "Slime Princess",
-          "id": "15",
-          "img": "/assets/slime.png",
-          "team": 2
-        }
-      ],
-      "id": 7
-    },
-    {
-      "teams": [
-        {
-          "name": "Princess Bubblegum",
-          "id": "01",
-          "img": "/assets/bubblegum.png",
-          "team": 1
-        },
-        {
-          "name": "Bee Princess",
-          "id": "06",
-          "img": "/assets/bee.png",
-          "team": 2
-        },
-        {
-          "name": "Jungle Princess",
-          "id": "11",
-          "img": "/assets/jungle.png",
-          "team": 1
-        },
-        {
-          "name": "Peanut Butter Princess",
-          "id": "16",
-          "img": "/assets/peanut.png",
-          "team": 2
-        },
-        {
-          "name": "Muscle Princess",
-          "id": "13",
-          "img": "/assets/muscle.png",
-          "team": 1
         },
         {
           "name": "Breakfast Princess",
           "id": "10",
           "img": "/assets/breakfast.png",
-          "team": 2
-        },
-        {
-          "name": "Cotton Candy Princess",
-          "id": "07",
-          "img": "/assets/cottoncandy.png",
           "team": 1
         },
         {
-          "name": "Hot Dog Princess",
-          "id": "04",
-          "img": "/assets/hotdog.png",
-          "team": 2
-        }
-      ],
-      "id": 8
-    },
-    {
-      "teams": [
-        {
-          "name": "Princess Bubblegum",
-          "id": "01",
-          "img": "/assets/bubblegum.png",
-          "team": 1
-        },
-        {
-          "name": "Flame Princess",
-          "id": "05",
-          "img": "/assets/flame.png",
-          "team": 2
-        },
-        {
-          "name": "Desert Princess",
-          "id": "09",
-          "img": "/assets/desert.png",
-          "team": 1
-        },
-        {
-          "name": "Muscle Princess",
-          "id": "13",
-          "img": "/assets/muscle.png",
-          "team": 2
-        },
-        {
-          "name": "Frozen Yoghurt Princess",
-          "id": "14",
-          "img": "/assets/frozenyogurt.png",
-          "team": 1
-        },
-        {
-          "name": "Slime Princess",
-          "id": "15",
-          "img": "/assets/slime.png",
+          "name": "Cookie Princess",
+          "id": "08",
+          "img": "/assets/cookie.png",
           "team": 2
         },
         {
@@ -595,7 +133,7 @@
           "team": 2
         }
       ],
-      "id": 9
+      "id": 1
     },
     {
       "teams": [
@@ -603,95 +141,6 @@
           "name": "Princess Bubblegum",
           "id": "01",
           "img": "/assets/bubblegum.png",
-          "team": 1
-        },
-        {
-          "name": "Bee Princess",
-          "id": "06",
-          "img": "/assets/bee.png",
-          "team": 2
-        },
-        {
-          "name": "Jungle Princess",
-          "id": "11",
-          "img": "/assets/jungle.png",
-          "team": 1
-        },
-        {
-          "name": "Peanut Butter Princess",
-          "id": "16",
-          "img": "/assets/peanut.png",
-          "team": 2
-        },
-        {
-          "name": "Frozen Yoghurt Princess",
-          "id": "14",
-          "img": "/assets/frozenyogurt.png",
-          "team": 1
-        },
-        {
-          "name": "Muscle Princess",
-          "id": "13",
-          "img": "/assets/muscle.png",
-          "team": 2
-        },
-        {
-          "name": "Breakfast Princess",
-          "id": "10",
-          "img": "/assets/breakfast.png",
-          "team": 1
-        },
-        {
-          "name": "Cotton Candy Princess",
-          "id": "07",
-          "img": "/assets/cottoncandy.png",
-          "team": 2
-        }
-      ],
-      "id": 10
-    },
-    {
-      "teams": [
-        {
-          "name": "Princess Bubblegum",
-          "id": "01",
-          "img": "/assets/bubblegum.png",
-          "team": 1
-        },
-        {
-          "name": "Flame Princess",
-          "id": "05",
-          "img": "/assets/flame.png",
-          "team": 2
-        },
-        {
-          "name": "Desert Princess",
-          "id": "09",
-          "img": "/assets/desert.png",
-          "team": 1
-        },
-        {
-          "name": "Muscle Princess",
-          "id": "13",
-          "img": "/assets/muscle.png",
-          "team": 2
-        },
-        {
-          "name": "Frozen Yoghurt Princess",
-          "id": "14",
-          "img": "/assets/frozenyogurt.png",
-          "team": 1
-        },
-        {
-          "name": "Breakfast Princess",
-          "id": "10",
-          "img": "/assets/breakfast.png",
-          "team": 2
-        },
-        {
-          "name": "Bee Princess",
-          "id": "06",
-          "img": "/assets/bee.png",
           "team": 1
         },
         {
@@ -699,34 +148,17 @@
           "id": "02",
           "img": "/assets/lumpyspace.png",
           "team": 2
-        }
-      ],
-      "id": 11
-    },
-    {
-      "teams": [
-        {
-          "name": "Princess Bubblegum",
-          "id": "01",
-          "img": "/assets/bubblegum.png",
-          "team": 1
         },
         {
           "name": "Flame Princess",
           "id": "05",
           "img": "/assets/flame.png",
-          "team": 2
-        },
-        {
-          "name": "Desert Princess",
-          "id": "09",
-          "img": "/assets/desert.png",
           "team": 1
         },
         {
-          "name": "Muscle Princess",
-          "id": "13",
-          "img": "/assets/muscle.png",
+          "name": "Bee Princess",
+          "id": "06",
+          "img": "/assets/bee.png",
           "team": 2
         },
         {
@@ -742,38 +174,50 @@
           "team": 2
         },
         {
-          "name": "Jungle Princess",
-          "id": "11",
-          "img": "/assets/jungle.png",
+          "name": "Hot Dog Princess",
+          "id": "04",
+          "img": "/assets/hotdog.png",
           "team": 1
         },
         {
-          "name": "Slime Princess",
-          "id": "15",
-          "img": "/assets/slime.png",
+          "name": "Cookie Princess",
+          "id": "08",
+          "img": "/assets/cookie.png",
           "team": 2
         }
       ],
-      "id": 12
+      "id": 2
     },
     {
       "teams": [
         {
-          "name": "Princess Bubblegum",
-          "id": "01",
-          "img": "/assets/bubblegum.png",
+          "name": "Desert Princess",
+          "id": "09",
+          "img": "/assets/desert.png",
           "team": 1
-        },
-        {
-          "name": "Flame Princess",
-          "id": "05",
-          "img": "/assets/flame.png",
-          "team": 2
         },
         {
           "name": "Breakfast Princess",
           "id": "10",
           "img": "/assets/breakfast.png",
+          "team": 2
+        },
+        {
+          "name": "Muscle Princess",
+          "id": "13",
+          "img": "/assets/muscle.png",
+          "team": 1
+        },
+        {
+          "name": "Frozen Yoghurt Princess",
+          "id": "14",
+          "img": "/assets/frozenyogurt.png",
+          "team": 2
+        },
+        {
+          "name": "Jungle Princess",
+          "id": "11",
+          "img": "/assets/jungle.png",
           "team": 1
         },
         {
@@ -789,78 +233,13 @@
           "team": 1
         },
         {
-          "name": "Cotton Candy Princess",
-          "id": "07",
-          "img": "/assets/cottoncandy.png",
-          "team": 2
-        },
-        {
-          "name": "Hot Dog Princess",
-          "id": "04",
-          "img": "/assets/hotdog.png",
-          "team": 1
-        },
-        {
-          "name": "Lumpy Space Princess",
-          "id": "02",
-          "img": "/assets/lumpyspace.png",
-          "team": 2
-        }
-      ],
-      "id": 13
-    },
-    {
-      "teams": [
-        {
-          "name": "Princess Bubblegum",
-          "id": "01",
-          "img": "/assets/bubblegum.png",
-          "team": 1
-        },
-        {
           "name": "Peanut Butter Princess",
           "id": "16",
           "img": "/assets/peanut.png",
           "team": 2
-        },
-        {
-          "name": "Bee Princess",
-          "id": "06",
-          "img": "/assets/bee.png",
-          "team": 1
-        },
-        {
-          "name": "Breakfast Princess",
-          "id": "10",
-          "img": "/assets/breakfast.png",
-          "team": 2
-        },
-        {
-          "name": "Jungle Princess",
-          "id": "11",
-          "img": "/assets/jungle.png",
-          "team": 1
-        },
-        {
-          "name": "Frozen Yoghurt Princess",
-          "id": "14",
-          "img": "/assets/frozenyogurt.png",
-          "team": 2
-        },
-        {
-          "name": "Muscle Princess",
-          "id": "13",
-          "img": "/assets/muscle.png",
-          "team": 1
-        },
-        {
-          "name": "Desert Princess",
-          "id": "09",
-          "img": "/assets/desert.png",
-          "team": 2
         }
       ],
-      "id": 14
+      "id": 3
     }
   ]
 }

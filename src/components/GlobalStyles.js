@@ -1,7 +1,7 @@
 import React from "react";
 import { Global, css } from "@emotion/core";
-import AdventureTimeLogo from "../assets/Adventure Time Logo.ttf";
-import AdventureTimeFont from "../assets/Sweet Cake.otf";
+import AdventureTimeLogo from "../assets/AdventureTimeLogo.ttf";
+import AdventureTimeFont from "../assets/SweetCake.otf";
 
 function GlobalStyles() {
   return (
@@ -11,6 +11,18 @@ function GlobalStyles() {
         *:after,
         *:before {
           box-sizing: border-box;
+        }
+
+        @font-face {
+          font-family: "Adventue Time Logo";
+          src: url("${AdventureTimeLogo}") format("truetype");
+          font-style: normal;
+        }
+
+        @font-face {
+          font-family: "Sweet Cake";
+          src: url(${AdventureTimeFont}) format("opentype");
+          font-style: normal;
         }
 
         body {
@@ -29,19 +41,6 @@ function GlobalStyles() {
           align-items: center;
           flex-direction: column;
           height: 100%;
-        }
-
-        @font-face {
-          font-family: "Adventure Time Logo";
-          src: url(${AdventureTimeLogo});
-
-          font-style: normal;
-        }
-        @font-face {
-          font-family: "Sweet Cake";
-          src: url(${AdventureTimeFont});
-
-          font-style: normal;
         }
       `}
     />

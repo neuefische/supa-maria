@@ -21,7 +21,7 @@ function App() {
         <Header onSwitchChangeClick={switchTheme} />
         <main className="main">
           <Switch>
-            <Route path="/result">
+            <Route path="/game/:gameId">
               <Result />
             </Route>
             <Route path="/">

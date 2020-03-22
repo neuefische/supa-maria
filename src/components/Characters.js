@@ -3,7 +3,7 @@ import Princess from "./Princess";
 import Player from "./Player";
 import styled from "@emotion/styled";
 import { getCharacters } from "../api/game";
-import ConfirmButton from "../components/Button";
+import ConfirmTeams from "./ConfirmTeams";
 import { useHistory } from "react-router-dom";
 
 function Characters(props) {
@@ -88,16 +88,23 @@ function Characters(props) {
   }, []);
 
   // Save / update teams in db
-  async function postTeam(teams) {
-    const response = await fetch("http://localhost:4000/teams", {
+  async function postGame(teams) {
+    const game = { teams: teams };
+    const response = await fetch("http://localhost:4000/games", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8"
       },
-      body: JSON.stringify(teams)
+      body: JSON.stringify(game)
     });
-    const createdTeam = await response.json();
-    return createdTeam;
+
+    const createdGame = await response.json();
+    return createdGame;
+  }
+
+  async function handleConfirmTeamsButtonClick(teams) {
+    const createdGame = await postGame(teams);
+    history.push(`/game/${createdGame.id}`);
   }
 
   const [isLoading, setIsLoading] = React.useState(false);
@@ -134,14 +141,13 @@ function Characters(props) {
         </CharactersWrapper>
       </CharactersCSS>
       <section>
-        <ConfirmButton
+        <ConfirmTeams
+          teams={teams}
           disabled={!teamsAreFull}
-          onClick={() => {
-            history.push("/result");
-          }}
+          onConfirmTeamsButtonClick={handleConfirmTeamsButtonClick}
         >
           confirm
-        </ConfirmButton>
+        </ConfirmTeams>
       </section>
     </>
   );

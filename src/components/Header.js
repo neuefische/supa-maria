@@ -1,23 +1,26 @@
 import React from "react";
-//import Logo from "./Crown.js";
 import Title from "./Title.js";
 import styled from "@emotion/styled";
 import { useTheme } from "emotion-theming";
 
 const Header = styled.header`
   margin: 0px;
-  height: 128px;
-  background-color: #953f70;
+  background-color: ${props => props.theme.colors.wrapper};
   display: flex;
   flex-direction: row;
   justify-content: center;
 `;
-const SwitchButton = styled.div`
+const SwitchTheme = styled.div`
   border: none;
   background: none;
   height: 80px;
   width: 80px;
-  margin: 30px;
+  margin: 0px 10px;
+`;
+
+const SwitchThemeImage = styled.img`
+  height: 100%;
+  width: 100%;
 `;
 
 function Appheader({ onSwitchChangeClick }) {
@@ -25,11 +28,9 @@ function Appheader({ onSwitchChangeClick }) {
   return (
     <Header>
       <Title>Supa</Title>
-      <SwitchButton onClick={onSwitchChangeClick}>
-        <span role="img" aria-label="Switch theme">
-          <img src={theme.images.switchicon} alt="Switchtheme"></img>
-        </span>
-      </SwitchButton>
+      <SwitchTheme onClick={onSwitchChangeClick}>
+        <SwitchThemeImage src={theme.images.switchicon} alt="Switchtheme" />
+      </SwitchTheme>
       <Title>Maria</Title>
     </Header>
   );

@@ -3,7 +3,7 @@ import Princess from "./Princess";
 import Player from "./Player";
 import styled from "@emotion/styled";
 import { getCharacters } from "../api/game";
-import Button from "../components/Button";
+import ConfirmButton from "../components/Button";
 import { useHistory } from "react-router-dom";
 
 function Characters(props) {
@@ -19,21 +19,17 @@ function Characters(props) {
     if (teams.length === 8) {
       return;
     }
-
     // Stop if princess is already in a team
     const alreadySelected = teams.find(
       selectedPrincess => selectedPrincess.id === character.id
     )
       ? true
       : false;
-
     if (alreadySelected) {
       return;
     }
-
     // Set next player
     const nextPlayer = currentPlayer === 1 ? 2 : 1;
-
     // Save selected princess in object
     const newPrincess = {
       name: character.name,
@@ -43,7 +39,6 @@ function Characters(props) {
     };
     teams.push(newPrincess);
     setTeams(teams);
-
     // Save selected princess in characters
     const characterIds = characters.map(character => {
       return character.id;
@@ -52,6 +47,7 @@ function Characters(props) {
     characters[newPrincessIndex] = newPrincess;
     setCharacters(characters);
     setCurrentPlayer(nextPlayer);
+    setTeamsAreFull(teams.length === 8);
   }
 
   const Players = styled.section`
@@ -106,24 +102,8 @@ function Characters(props) {
     return createdTeam;
   }
 
-  setTeamsAreFull(teamOne.length === 4 && teamTwo.length === 4);
-
   const [isLoading, setIsLoading] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState(false);
-
-  React.useEffect(() => {
-    async function doGetCharacters() {
-      try {
-        const allCharacters = await getCharacters();
-        setCharacters(allCharacters);
-      } catch (error) {
-        setErrorMessage(error.message);
-      }
-    }
-    setIsLoading(true);
-    doGetCharacters();
-    setIsLoading(false);
-  }, []);
 
   if (errorMessage) {
     return <div>{errorMessage}</div>;
@@ -156,14 +136,14 @@ function Characters(props) {
         </CharactersWrapper>
       </CharactersCSS>
       <section>
-        <Button
+        <ConfirmButton
           disabled={!teamsAreFull}
           onClick={() => {
             history.push("/result");
           }}
         >
           confirm
-        </Button>
+        </ConfirmButton>
       </section>
     </>
   );

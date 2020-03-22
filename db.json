@@ -596,6 +596,59 @@
         }
       ],
       "id": 9
+    },
+    {
+      "teams": [
+        {
+          "name": "Princess Bubblegum",
+          "id": "01",
+          "img": "./assets/bubblegum.png",
+          "team": 1
+        },
+        {
+          "name": "Bee Princess",
+          "id": "06",
+          "img": "./assets/bee.png",
+          "team": 2
+        },
+        {
+          "name": "Jungle Princess",
+          "id": "11",
+          "img": "./assets/jungle.png",
+          "team": 1
+        },
+        {
+          "name": "Peanut Butter Princess",
+          "id": "16",
+          "img": "./assets/peanut.png",
+          "team": 2
+        },
+        {
+          "name": "Frozen Yoghurt Princess",
+          "id": "14",
+          "img": "./assets/frozenyogurt.png",
+          "team": 1
+        },
+        {
+          "name": "Muscle Princess",
+          "id": "13",
+          "img": "./assets/muscle.png",
+          "team": 2
+        },
+        {
+          "name": "Breakfast Princess",
+          "id": "10",
+          "img": "./assets/breakfast.png",
+          "team": 1
+        },
+        {
+          "name": "Cotton Candy Princess",
+          "id": "07",
+          "img": "./assets/cottoncandy.png",
+          "team": 2
+        }
+      ],
+      "id": 10
     }
   ]
 }

@@ -104,7 +104,7 @@ function Characters(props) {
 
   async function handleConfirmTeamsButtonClick(teams) {
     const createdGame = await postGame(teams);
-    history.push(`/games/${createdGame.id}/result`);
+    history.push(`/game/${createdGame.id}`);
   }
 
   const [isLoading, setIsLoading] = React.useState(false);

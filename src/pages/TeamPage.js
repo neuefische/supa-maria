@@ -3,22 +3,21 @@ import Princess from "../components/Princess";
 import Player from "../components/Player";
 import Button from "../components/Button";
 import styled from "@emotion/styled";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Result() {
   const [teams, setTeams] = React.useState([]);
-
+  const { gameId } = useParams();
   useEffect(() => {
-    async function getTeams() {
-      const response = await fetch("http://localhost:4000/teams/");
-      const results = await response.json();
-      setTeams(results);
+    async function getTeams(gameId) {
+      const response = await fetch(`http://localhost:4000/games/${gameId}`);
+      const game = await response.json();
+      setTeams(game.teams);
     }
-    getTeams();
+    getTeams(gameId);
   }, []);
 
   // set teamOne and teamTwo
-
   const TeamOne = styled.div`
     display: flex;
   `;
@@ -62,7 +61,6 @@ function Result() {
           })}
       </TeamTwo>
       <Button className="">Start Game</Button>
-      <Link to="/select">SelectPage</Link>
     </main>
   );
 }

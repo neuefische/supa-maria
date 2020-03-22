@@ -16,7 +16,7 @@ function Characters(props) {
 
   async function handleClick(character) {
     // Stop functionality if already 8 princesses are selected
-    if (teams.length === 8) {
+    if (teamsAreFull) {
       return;
     }
     // Stop if princess is already in a team

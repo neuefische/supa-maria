@@ -10,6 +10,7 @@ const Headline = styled.header`
   font-size: 3.7rem;
   margin-bottom: 15px;
   margin-top: 30px;
+  text-align: center;
 `;
 
 function Select() {

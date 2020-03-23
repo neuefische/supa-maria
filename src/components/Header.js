@@ -9,6 +9,7 @@ const Header = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 const SwitchTheme = styled.div`
   border: none;

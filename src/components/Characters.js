@@ -51,15 +51,17 @@ function Characters(props) {
   }
 
   const Players = styled.section`
-      display: flex;
-      flex-direction: row;
-    }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   `;
 
   const CharactersWrapper = styled.div`
     background-color: #ffc4eb;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     border-radius: 10px;
     padding: 10px;
     width: 100%;
@@ -70,7 +72,6 @@ function Characters(props) {
     margin: 10px;
     width: 100%;
     max-width: 600px;
-    max-height: 600px;
   `;
 
   React.useEffect(() => {

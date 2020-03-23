@@ -81,5 +81,59 @@
       "img": "/assets/peanut.png"
     }
   ],
-  "games": []
+  "games": [
+    {
+      "teams": [
+        {
+          "name": "Bee Princess",
+          "id": "06",
+          "img": "/assets/bee.png",
+          "team": 1
+        },
+        {
+          "name": "Princess Bubblegum",
+          "id": "01",
+          "img": "/assets/bubblegum.png",
+          "team": 2
+        },
+        {
+          "name": "Wild Berry Princess",
+          "id": "03",
+          "img": "/assets/wildberry.png",
+          "team": 1
+        },
+        {
+          "name": "Cookie Princess",
+          "id": "08",
+          "img": "/assets/cookie.png",
+          "team": 2
+        },
+        {
+          "name": "Jungle Princess",
+          "id": "11",
+          "img": "/assets/jungle.png",
+          "team": 1
+        },
+        {
+          "name": "Desert Princess",
+          "id": "09",
+          "img": "/assets/desert.png",
+          "team": 2
+        },
+        {
+          "name": "Frozen Yoghurt Princess",
+          "id": "14",
+          "img": "/assets/frozenyogurt.png",
+          "team": 1
+        },
+        {
+          "name": "Peanut Butter Princess",
+          "id": "16",
+          "img": "/assets/peanut.png",
+          "team": 2
+        }
+      ],
+      "id": 1
+    }
+  ]
 }

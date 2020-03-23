@@ -6,7 +6,7 @@ const backgroundPlayerOne = "#591f6e";
 const backgroundPlayerTwo = "#d10171";
 
 const PrincessImageWrapper = styled.div`
-  flex-basis: calc(100% / 4 - 4px);
+  flex-basis: calc(100% / 4 - 8px);
   background-color: ${backgroundDefault};
   ${props => (props.team === 1 ? `background: ${backgroundPlayerOne};` : "")}
   ${props =>

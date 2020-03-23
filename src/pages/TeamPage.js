@@ -25,10 +25,14 @@ function Result() {
   // set teamOne and teamTwo
   const TeamOne = styled.div`
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   `;
 
   const TeamTwo = styled.div`
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   `;
 
   return (
